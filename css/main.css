@@ -1,0 +1,45 @@
+#card{
+    transition: box-shadow .3s;
+    position: absolute;
+    width: 4%;
+    top: 680px;
+    left: 250px;
+    border: 1px solid #ccc;
+    background: #fff;
+
+}
+#card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+#card2{
+    transition: box-shadow .3s;
+    position: absolute;
+    width: 4%;
+    top: 680px;
+    left: 330px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+#card2:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+#desk{
+    margin-top: 50px;
+    margin-left: 50px;
+    position: absolute;
+    width: 65%;
+}
+
+#headline{
+    text-align: center;
+}
+
+#button{
+    position: fixed;
+    left: 20px;
+    top:900px;
+
+    height: 50px;
+    width: 100px;
+}
