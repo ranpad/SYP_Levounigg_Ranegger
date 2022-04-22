@@ -2,11 +2,15 @@
     transition: box-shadow .3s;
     position: absolute;
     width: 4%;
-    top: 680px;
-    left: 250px;
+    top: 400px;
+    left: 200px;
     border: 1px solid #ccc;
-    background: #fff;
+    background: rgb(255, 255, 255);
 
+}
+table,th, td {
+    border:1px solid black;
+    margin-left: 1000px;
 }
 #card:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
@@ -15,8 +19,8 @@
     transition: box-shadow .3s;
     position: absolute;
     width: 4%;
-    top: 680px;
-    left: 330px;
+    top: 400px;
+    left: 280px;
     border: 1px solid #ccc;
     background: #fff;
 }
@@ -25,21 +29,12 @@
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 #desk{
-    margin-top: 50px;
-    margin-left: 50px;
     position: absolute;
-    width: 65%;
+    margin-top: 0px;
+    width: 50%;
 }
-
-#headline{
-    text-align: center;
-}
-
 #button{
-    position: fixed;
-    left: 20px;
-    top:900px;
-
-    height: 50px;
-    width: 100px;
+    position: absolute;
+    left: 400px;
+    top:700px;
 }
