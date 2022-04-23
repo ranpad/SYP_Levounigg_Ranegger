@@ -1,3 +1,14 @@
+body{
+    background-image: url("https://2.bp.blogspot.com/-VQHAVI0hQMw/UJhdiIdIAOI/AAAAAAAADzg/RftfgxIXwFc/w1200-h630-p-k-no-nu/Seamless+carpet+fabric+pattern+texture+2.jpg");
+}
+
+#headline{
+    color: white;
+    position: absolute;
+    margin-left: 40px;
+    font-size: 40px;
+}
+
 #card{
     transition: box-shadow .3s;
     position: absolute;
@@ -8,13 +19,18 @@
     background: rgb(255, 255, 255);
 
 }
+
 table,th, td {
-    border:1px solid black;
-    margin-left: 1000px;
+    color: white;
+    border:1px solid white;
+    margin-top: 50px;
+    margin-left: 1650px;
 }
+
 #card:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
+
 #card2{
     transition: box-shadow .3s;
     position: absolute;
@@ -28,13 +44,66 @@ table,th, td {
 #card2:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
+
 #desk{
     position: absolute;
     margin-top: 0px;
+    margin-left: 20px;
     width: 50%;
 }
+
 #button{
     position: absolute;
     left: 400px;
     top:700px;
+}
+
+/* Tooltip box for card combinations*/
+.tooltip{
+    position: relative;
+}
+
+.tooltip:before{
+    content: attr(data-text);
+    position: absolute;
+
+    /* vertically center */
+    top:50%;
+    transform: translateY(-50%);
+
+    /* move to right and add left margin*/
+    right: 100%;
+    margin-right: 15px;
+
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+
+    display: none;
+}
+
+.tooltip:after {
+    content: "";
+    position:absolute;
+
+    /* position tooltip correctly */
+    right:100%;
+    margin-right:-5px;
+
+    /* vertically center */
+    top:50%;
+    transform:translateY(-50%);
+
+    /* the arrow */
+    border:10px solid #000;
+    border-color: transparent transparent transparent black;
+
+    display: none;
+}
+
+.tooltip:hover:before, .tooltip:hover:after{
+    display: block;
 }

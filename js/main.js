@@ -41,7 +41,7 @@ function check(check,check2){
 
     console.log(check,check2);
 
-    document.getElementById("pair").style.background="rgb(255, 255, 255)";
+    document.getElementById("pair").style.background="rgba(255, 255, 255, 0.0)";
     const s=[0,1,2,3,4,5,6,7,8,9];
     let c=0;
     while(c<=s.length){

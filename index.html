@@ -31,17 +31,76 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
         <table>
             <tr>
-                <th>Piet Hein</th>
+                <th>Different Card Combinations</th>
             </tr>
             <tr id="pair">
-                <td>pair</td>
+                <td>
+                    <span class="tooltip" data-text="Two cards of the same rank.">
+                        Pair
+                    </span>
+                </td>
             </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
+            <tr id="twoPair">
+                <td>
+                    <span class="tooltip" data-text="Two different pairs.">
+                        Two Pairs
+                    </span>
+                </td>
+            </tr>
+            <tr id="theeOfaKind">
+                <td>
+                    <span class="tooltip" data-text="Three cards of the same rank.">
+                        Three of a Kind
+                    </span>
+                </td>
+            </tr>
+            <tr id="straight">
+                <td>
+                    <span class="tooltip" data-text="Five cards in a sequence, but not of the same suit.">
+                        Straight
+                    </span>
+                </td>
+            </tr>
+            <tr id="flush">
+                <td>
+                    <span class="tooltip" data-text="Any five cards of the same suit, but not in a sequence.">
+                        Flush
+                    </span>
+                </td>
+            </tr>
+            <tr id="fullHouse">
+                <td>
+                    <span class="tooltip" data-text="Three of a kind with a pair.">
+                        Full House
+                    </span>
+                </td>
+            </tr>
+            <tr id="fourOfaKind">
+                <td>
+                    <span class="tooltip" data-text="All four cards of the same rank.">
+                        Four of a Kind
+                    </span>
+                </td>
+            </tr>
+            <tr id="straightFlush">
+                <td>
+                    <span class="tooltip" data-text="Five cards in a sequence, all in the same suit.">
+                        Straight Flush
+                    </span>
+                </td>
+            </tr>
+            <tr id="royalFlush">
+                <td>
+                    <span class="tooltip" data-text="Ace, King, Queen, Jack and 10 all in the same suit.">
+                        Royal Flush
+                    </span>
+                </td>
             </tr>
         </table>
+
         <button type="button" id="button" onclick="NewCards()">New Cards</button>
         <img src="img/Bilder/desk.png" id="desk" alt="Fehler">
         <img src="img/cards/BAckside.png" id="card" onclick="showcard()" alt="Fehler">
