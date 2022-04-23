@@ -24,6 +24,7 @@ function showcard() {
     var randomNum2 = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2").src = myPix[randomNum2];
     //console.log(myPix);
+    //Wixxen
 
     if(randomNum==randomNum2){
         console.log("Warning! Same Cards", randomNum, randomNum2);
