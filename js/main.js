@@ -24,7 +24,6 @@ function showcard() {
     var randomNum2 = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2").src = myPix[randomNum2];
     //console.log(myPix);
-    //Wixxen
 
     if(randomNum==randomNum2){
         console.log("Warning! Same Cards", randomNum, randomNum2);
@@ -50,9 +49,20 @@ function check(check,check2){
         }
         c++;
     }
-    if(myPix[check].includes('ace')==myPix[check2].includes('ace')&&myPix[check].includes(s[c])!=false&&myPix[check2].includes(s[c])!=false){
+    if(myPix[check].includes('ace')==myPix[check2].includes('ace')&&myPix[check].includes('ace')!=false&&myPix[check2].includes('ace')!=false){
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
     }
+    if(myPix[check].includes('jack')==myPix[check2].includes('jack')&&myPix[check].includes('jack')!=false&&myPix[check2].includes('jack')!=false){
+        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+    }
+    if(myPix[check].includes('king')==myPix[check2].includes('king')&&myPix[check].includes('king')!=false&&myPix[check2].includes('king')!=false){
+        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+    }
+    if(myPix[check].includes('queen')==myPix[check2].includes('queen')&&myPix[check].includes('queen')!=false&&myPix[check2].includes('queen')!=false){
+        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+    }
+
+
     myPix.splice(check,1);
     myPix.splice(check2,1);
 }
