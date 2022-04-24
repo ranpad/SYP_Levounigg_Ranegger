@@ -4,27 +4,18 @@ body{
 
 #headline{
     color: white;
-    position: absolute;
-    margin-left: 40px;
-    font-size: 40px;
+    text-align: center;
 }
 
 #card{
     transition: box-shadow .3s;
-    position: absolute;
     width: 4%;
+    position: absolute;
     top: 400px;
     left: 200px;
     border: 1px solid #ccc;
     background: rgb(255, 255, 255);
 
-}
-
-table,th, td {
-    color: white;
-    border:1px solid white;
-    margin-top: 50px;
-    margin-left: 1650px;
 }
 
 #card:hover {
@@ -33,8 +24,8 @@ table,th, td {
 
 #card2{
     transition: box-shadow .3s;
-    position: absolute;
     width: 4%;
+    position: absolute;
     top: 400px;
     left: 280px;
     border: 1px solid #ccc;
@@ -45,17 +36,35 @@ table,th, td {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
+table{
+    position: fixed;
+    color: white;
+    border:1px solid white;
+    top: 20px;
+    right: 20px;
+}
+
+th, td{
+    color: white;
+    border:1px solid white;
+}
+
+
+
 #desk{
-    position: absolute;
-    margin-top: 0px;
-    margin-left: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
     width: 50%;
 }
 
 #button{
-    position: absolute;
-    left: 400px;
-    top:700px;
+    width: 100px;
+    height: 50px;
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
 }
 
 /* Tooltip box for card combinations*/
