@@ -41,9 +41,7 @@ function showcard() {
     myPix2.splice(randomNum2,1);
     //console.log(myPix);
 
-        check(randomNum,randomNum2);
-
-
+    check(randomNum,randomNum2);
 }
 function check(check,check2){
 
@@ -70,12 +68,8 @@ function check(check,check2){
     if(myPix[check].includes('queen')==myPix[check2].includes('queen')&&myPix[check].includes('queen')!=false&&myPix[check2].includes('queen')!=false){
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
     }
-
-
-
 }
 
 function chooseCard(){
-
 
 }
