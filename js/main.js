@@ -17,22 +17,33 @@ var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",  
              "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
 
 function showcard() {
+    var myPix2 = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
+        "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
+        "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
+        "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
+        "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
+        "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
+        "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
+        "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
+        "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
+        "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
+        "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
+        "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
+        "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
 
-    var randomNum = Math.floor(Math.random() * myPix.length);
+
+    var randomNum = Math.floor(Math.random() * myPix2.length);
     document.getElementById("card").src = myPix[randomNum];
+    myPix2.splice(randomNum,1);
 
-    var randomNum2 = Math.floor(Math.random() * myPix.length);
+    var randomNum2 = Math.floor(Math.random() * myPix2.length);
     document.getElementById("card2").src = myPix[randomNum2];
+    myPix2.splice(randomNum2,1);
     //console.log(myPix);
 
-    if(randomNum==randomNum2){
-        console.log("Warning! Same Cards", randomNum, randomNum2);
-        showcard();
-    }
-
-    else{
         check(randomNum,randomNum2);
-    }
+
+
 }
 function check(check,check2){
 
@@ -61,8 +72,7 @@ function check(check,check2){
     }
 
 
-    myPix.splice(check,1);
-    myPix.splice(check2,1);
+
 }
 
 function chooseCard(){

@@ -8,13 +8,14 @@ body{
 }
 
 #card{
+    position: fixed;
     transition: box-shadow .3s;
     width: 4%;
     position: absolute;
-    top: 450px;
-    left: 700px;
-    /*border: 1px solid #ccc;
-    background: rgb(255, 255, 255);*/
+    top: 650px;
+    left: 810px;
+    border: 1px solid #ccc;
+    background: rgb(255, 255, 255);
 
 }
 
@@ -23,13 +24,13 @@ body{
 }
 
 #card2{
+    position: fixed;
     transition: box-shadow .3s;
     width: 4%;
-    position: absolute;
-    top: 450px;
-    left: 780px;
-    /*border: 1px solid #ccc;
-    background: #fff;*/
+    top: 650px;
+    left: 900px;
+    border: 1px solid #ccc;
+    background: #fff;
 }
 
 #card2:hover {
