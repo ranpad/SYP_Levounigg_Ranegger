@@ -31,6 +31,7 @@ function showcard() {
         "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
         "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
 
+
     var randomNum = Math.floor(Math.random() * myPix2.length);
     document.getElementById("card").src = myPix[randomNum];
     myPix2.splice(randomNum,1);
