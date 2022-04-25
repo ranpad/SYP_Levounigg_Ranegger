@@ -33,11 +33,11 @@ function showcard() {
 
 
     var randomNum = Math.floor(Math.random() * myPix2.length);
-    document.getElementById("card").src = myPix[randomNum];
+    document.getElementById("card").src = myPix2[randomNum];
     myPix2.splice(randomNum,1);
 
     var randomNum2 = Math.floor(Math.random() * myPix2.length);
-    document.getElementById("card2").src = myPix[randomNum2];
+    document.getElementById("card2").src = myPix2[randomNum2];
     myPix2.splice(randomNum2,1);
     //console.log(myPix);
 
