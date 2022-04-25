@@ -33,8 +33,6 @@ function showcard() {
     else{
         check(randomNum,randomNum2);
     }
-
-
 }
 function check(check,check2){
 
