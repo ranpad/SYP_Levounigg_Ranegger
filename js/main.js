@@ -12,9 +12,7 @@ var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",  
     "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
     "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
     "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
-function NewCards(){
-    i=0;
-}
+
 
 function showcard() {
 
