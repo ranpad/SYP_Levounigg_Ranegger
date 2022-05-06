@@ -7,29 +7,82 @@ body{
     text-align: center;
 }
 
-#card{
-    position: fixed;
+.cards > img{
+    position: absolute;
     transition: box-shadow .3s;
     width: 4%;
-    /*top: 650px;
-    left: 810px;*/
+}
+
+#card{
     left: 46%;
     top: 65%;
 }
 
 #card2{
-    position: fixed;
-    transition: box-shadow .3s;
-    width: 4%;
-    /*top: 650px;
-    left: 900px;*/
     left: 49%;
     top: 66%;
 }
 
+/*Cards Bot 1*/
+#card1Bot1{
+
+}
+
+#card2Bot1{
+
+}
+
+/*Cards Bot 2*/
+#card1Bot2{
+
+}
+
+#card2Bot2{
+
+}
+
+/*Cards Bot 3*/
+#card1Bot3{
+
+}
+
+#card2Bot3{
+
+}
+
+/*Cards Bot 4*/
+#card1Bot4{
+
+}
+
+#card2Bot4{
+
+}
+
+/*Table Cards*/
+#tableCard1{
+
+}
+
+#tableCard2{
+
+}
+
+#tableCard3{
+
+}
+
+#tableCard4{
+
+}
+
+#tableCard5{
+
+}
+
 #kartenstapel{
-    position: fixed;
-    width: 4%;
+    top: 46%;
+    left: 32%;
 }
 
 #card:hover {

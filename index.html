@@ -31,6 +31,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/animation.js"></script>
 
         <table>
             <tr>
@@ -101,11 +102,51 @@
             </tr>
         </table>
 
-        <button type="button" id="button" onclick="NewCards()">New Cards</button>
+        <button type="button" id="button" onclick="myMove();">New Cards</button>
         <img src="img/Bilder/desk.png" id="desk" alt="Fehler">
+
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="kartenstapel" alt="Fehler">
+        </div>
+
+        <!-- CardsPlayer -->
+        <div id="playerCards" class="cards">
         <img src="img/cards/PokerCardBackside.png" id="card" onclick="showcard()" alt="Fehler">
         <img src="img/cards/PokerCardBackside.png" id="card2" onclick="showcard()" alt="Fehler">
-        <img src="img/cards/PokerCardBackside.png" id="kartenstapel" alt="Fehler">
+        </div>
+
+        <!-- Cards for Player 1 -->
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="card1Bot1" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="card2Bot1" alt="Fehler">
+        </div>
+
+        <!-- Cards for Player 2 -->
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="card1Bot2" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="card2Bot2" alt="Fehler">
+        </div>
+
+        <!-- Cards for Player 3 -->
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="card1Bot3" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="card2Bot3" alt="Fehler">
+        </div>
+
+        <!-- Cards for Player 4 -->
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="card1Bot4" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="card2Bot4" alt="Fehler">
+        </div>
+
+        <!-- Cards for the Table -->
+        <div class="cards">
+        <img src="img/cards/PokerCardBackside.png" id="tableCard1" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="tableCard2" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="tableCard3" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="tableCard4" alt="Fehler">
+        <img src="img/cards/PokerCardBackside.png" id="tableCard5" alt="Fehler">
+        </div>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
