@@ -24,7 +24,7 @@ function showcard() {
     //console.log(myPix);
 
     if(randomNum==randomNum2){
-        schowcard();
+        showcard();
     }else{
         check(randomNum,randomNum2);
     }
@@ -41,8 +41,6 @@ function check(check,check2){
     while(c<=s.length){
         if(myPix[check].includes(s[c])==myPix[check2].includes(s[c])&&check<=40&&check2<=40&&myPix[check].includes(s[c])!=false&&myPix[check2].includes(s[c])!=false){
             document.getElementById("pair").style.background="rgb(255, 0, 0)";
-            myPix.splice(check,1);
-            myPix.splice(check2,1);
         }
         c++;
     }
@@ -58,6 +56,8 @@ function check(check,check2){
     if(myPix[check].includes('queen')==myPix[check2].includes('queen')&&myPix[check].includes('queen')!=false&&myPix[check2].includes('queen')!=false){
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
     }
+    myPix.splice(check,1);
+    myPix.splice(check2,1);
 }
 
 function chooseCard(){
