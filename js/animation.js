@@ -1,26 +1,28 @@
-let posTop = 46;
-let posLeft = 32;
+const posTop = 46;
+const posLeft = 32;
 
 function myMove() {
     let id = null;
+    let posT = posTop;
+    let posL = posLeft;
     const elem = document.getElementById("card");
     let counter = 0;
     clearInterval(id);
     id = setInterval(frame, 25);
     function frame() {
-        if (posLeft === 46 && posTop === 64) {
-            posTop++;
-            elem.style.top = posTop + "%";
+        if (posL === 46 && posT === 64) {
+            posT++;
+            elem.style.top = posT + "%";
             clearInterval(id);
         } else {
-            posTop++;
-            posLeft++;
+            posT++;
+            posL++;
             counter++;
             if(counter % 3 === 0){
-                posTop++;
+                posT++;
             }
-            elem.style.top = posTop + "%";
-            elem.style.left = posLeft + "%";
+            elem.style.top = posT + "%";
+            elem.style.left = posL + "%";
         }
     }
 }

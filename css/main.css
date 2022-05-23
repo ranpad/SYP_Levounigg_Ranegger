@@ -25,64 +25,66 @@ body{
 
 /*Cards Bot 1*/
 #card1Bot1{
-
+    top: 46%;
+    left: 22%;
 }
 
 #card2Bot1{
-
+    top: 47%;
+    left: 25%;
 }
 
 /*Cards Bot 2*/
 #card1Bot2{
-
+    top: 27%;
+    left: 46%;
 }
 
 #card2Bot2{
-
+    top: 28%;
+    left: 49%;
 }
 
 /*Cards Bot 3*/
 #card1Bot3{
-
+    top: 46%;
+    left: 71%;
 }
 
 #card2Bot3{
-
-}
-
-/*Cards Bot 4*/
-#card1Bot4{
-
-}
-
-#card2Bot4{
-
+    top: 47%;
+    left: 74%;
 }
 
 /*Table Cards*/
 #tableCard1{
-
+    top: 46%;
+    left: 40%;
 }
 
 #tableCard2{
-
+    top: 46%;
+    left: 44%;
 }
 
 #tableCard3{
-
+    top: 46%;
+    left: 48%;
 }
 
 #tableCard4{
-
+    top: 46%;
+    left: 52%;
 }
 
 #tableCard5{
-
+    top: 46%;
+    left: 56%;
 }
 
 #kartenstapel{
     top: 46%;
-    left: 32%;
+    left: 34%;
 }
 
 #card:hover {
