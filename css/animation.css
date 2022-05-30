@@ -1,0 +1,70 @@
+/*Player 1 | -2*/
+@keyframes card1player1 {
+    from {left: 34%; top: 45%;}
+    to {left: 46%; top: 63%;}
+}
+
+@keyframes card2player1 {
+    from {left: 34%; top: 45%;}
+    to {left: 49%; top: 64%;}
+}
+
+/*Bot1 | -1*/
+@keyframes card1bot1 {
+    from {left: 34%; top: 45%;}
+    to {left: 19%; top: 45%;}
+}
+
+@keyframes card2bot1 {
+    from {left: 34%; top: 45%;}
+    to {left: 22%; top: 46%;}
+}
+
+/*Bot2 | -1,5*/
+@keyframes card1bot2 {
+    from {left: 34%; top: 45%;}
+    to {left: 46%; top: 26%;}
+}
+
+@keyframes card2bot2 {
+    from {left: 34%; top: 45%;}
+    to {left: 49%; top: 27%;}
+}
+
+/*Bot3 | -1*/
+@keyframes card1bot3 {
+    from {left: 34%; top: 45%;}
+    to {left: 74%; top: 45%;}
+}
+
+@keyframes card2bot3 {
+    from {left: 34%; top: 45%;}
+    to {left: 77%; top: 46%;}
+}
+
+/*Table Cards | -1*/
+
+@keyframes tableCard1 {
+    from {left: 34%; top: 45%;}
+    to {left: 40%; top: 45%;}
+}
+
+@keyframes tableCard2 {
+    from {left: 34%; top: 45%;}
+    to {left: 44%; top: 45%;}
+}
+
+@keyframes tableCard3 {
+    from {left: 34%; top: 45%;}
+    to {left: 48%; top: 45%;}
+}
+
+@keyframes tableCard4 {
+    from {left: 34%; top: 45%;}
+    to {left: 52%; top: 45%;}
+}
+
+@keyframes tableCard5 {
+    from {left: 34%; top: 45%;}
+    to {left: 56%; top: 45%;}
+}

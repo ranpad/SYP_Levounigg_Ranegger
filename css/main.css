@@ -1,3 +1,6 @@
+@import "animation.css";
+@import "tooltip.css";
+
 body{
     background-image: url("https://2.bp.blogspot.com/-VQHAVI0hQMw/UJhdiIdIAOI/AAAAAAAADzg/RftfgxIXwFc/w1200-h630-p-k-no-nu/Seamless+carpet+fabric+pattern+texture+2.jpg");
 }
@@ -5,85 +8,160 @@ body{
 #headline{
     color: white;
     text-align: center;
+    font-size: 350%;
+}
+
+a{
+    display: none;
+    color: white;
+    font-size: 150%;
+    z-index: 4;
+}
+
+#nameBot1{
+    top: 41%;
+    left: 20%;
+}
+
+#nameBot2{
+    top: 22%;
+    left: 47%;
+}
+
+#nameBot3{
+    top: 41%;
+    left: 75%;
 }
 
 .cards > img{
     position: absolute;
     transition: box-shadow .3s;
     width: 4%;
+    z-index: 2;
 }
 
 #card{
     left: 46%;
-    top: 65%;
+    top: 63%;
+    animation-name: card1player1;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
 
 #card2{
     left: 49%;
-    top: 66%;
+    top: 64%;
+    animation-name: card2player1;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
 }
 
 /*Cards Bot 1*/
 #card1Bot1{
-    top: 46%;
+    top: 45%;
     left: 22%;
+    animation-name: card1bot1;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
 }
 
 #card2Bot1{
-    top: 47%;
+    top: 46%;
     left: 25%;
+    animation-name: card2bot1;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
 }
 
 /*Cards Bot 2*/
 #card1Bot2{
-    top: 27%;
+    top: 26%;
     left: 46%;
+    animation-name: card1bot2;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    animation-fill-mode: both;
 }
 
 #card2Bot2{
-    top: 28%;
+    top: 27%;
     left: 49%;
+    animation-name: card2bot2;
+    animation-duration: 1s;
+    animation-delay: 5s;
+    animation-fill-mode: both;
 }
 
 /*Cards Bot 3*/
 #card1Bot3{
-    top: 46%;
-    left: 71%;
+    top: 45%;
+    left: 74%;
+    animation-name: card1bot3;
+    animation-duration: 1s;
+    animation-delay: 6s;
+    animation-fill-mode: both;
 }
 
 #card2Bot3{
-    top: 47%;
-    left: 74%;
+    top: 46%;
+    left: 77%;
+    animation-name: card2bot3;
+    animation-duration: 1s;
+    animation-delay: 7s;
+    animation-fill-mode: both;
 }
 
 /*Table Cards*/
 #tableCard1{
-    top: 46%;
+    top: 45%;
     left: 40%;
+    animation-name: tableCard1;
+    animation-duration: 500ms;
+    animation-delay: 8s;
+    animation-fill-mode: both;
 }
 
 #tableCard2{
-    top: 46%;
+    top: 45%;
     left: 44%;
+    animation-name: tableCard2;
+    animation-duration: 500ms;
+    animation-delay: 8500ms;
+    animation-fill-mode: both;
 }
 
 #tableCard3{
-    top: 46%;
+    top: 45%;
     left: 48%;
+    animation-name: tableCard3;
+    animation-duration: 500ms;
+    animation-delay: 9s;
+    animation-fill-mode: both;
 }
 
 #tableCard4{
-    top: 46%;
+    top: 45%;
     left: 52%;
+    animation-name: tableCard4;
+    animation-duration: 500ms;
+    animation-delay: 9500ms;
+    animation-fill-mode: both;
 }
 
 #tableCard5{
-    top: 46%;
+    top: 45%;
     left: 56%;
+    animation-name: tableCard5;
+    animation-duration: 500ms;
+    animation-delay: 10s;
+    animation-fill-mode: both;
 }
 
 #kartenstapel{
-    top: 46%;
+    top: 45%;
     left: 34%;
 }
 
@@ -109,11 +187,16 @@ th, td{
 }
 
 #desk{
-    display: block;
-    margin-left: auto;
+    /*margin-left: auto;
     margin-right: auto;
-    margin-top: 6%;
-    width: 65%;
+    margin-top: auto;*/
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 73%;
+    z-index: 1;
 }
 
 #button{
@@ -124,52 +207,10 @@ th, td{
     bottom: 5px;
 }
 
-/* Tooltip box for card combinations*/
-.tooltip{
-    position: relative;
-}
-
-.tooltip:before{
-    content: attr(data-text);
-    position: absolute;
-
-    /* vertically center */
-    top:50%;
-    transform: translateY(-50%);
-
-    /* move to right and add left margin*/
-    right: 100%;
-    margin-right: 15px;
-
-    width: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    background: #fff;
-    color: #000;
-    text-align: center;
-
-    display: none;
-}
-
-.tooltip:after {
-    content: "";
-    position:absolute;
-
-    /* position tooltip correctly */
-    right:100%;
-    margin-right:-5px;
-
-    /* vertically center */
-    top:50%;
-    transform:translateY(-50%);
-
-    /* the arrow */
-    border:10px solid #000;
-    border-color: transparent transparent transparent white;
-
-    display: none;
-}
-
-.tooltip:hover:before, .tooltip:hover:after{
-    display: block;
+#button1{
+    width: 100px;
+    height: 50px;
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
 }

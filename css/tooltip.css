@@ -1,0 +1,52 @@
+/* Tooltip box for card combinations*/
+.tooltip{
+    position: relative;
+    z-index: 3;
+}
+
+.tooltip:before{
+    content: attr(data-text);
+    position: absolute;
+    z-index: 4;
+
+    /* vertically center */
+    top:50%;
+    transform: translateY(-50%);
+
+    /* move to right and add left margin*/
+    right: 100%;
+    margin-right: 15px;
+
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff;
+    color: #000;
+    text-align: center;
+
+    display: none;
+}
+
+.tooltip:after {
+    content: "";
+    position:absolute;
+    z-index: 5;
+
+    /* position tooltip correctly */
+    right:100%;
+    margin-right:-5px;
+
+    /* vertically center */
+    top:50%;
+    transform:translateY(-50%);
+
+    /* the arrow */
+    border:10px solid #000;
+    border-color: transparent transparent transparent white;
+
+    display: none;
+}
+
+.tooltip:hover:before, .tooltip:hover:after{
+    display: block;
+}
