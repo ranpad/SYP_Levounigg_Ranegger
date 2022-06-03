@@ -1,5 +1,6 @@
 @import "animation.css";
 @import "tooltip.css";
+@import "cards.css";
 
 body{
     background-image: url("https://2.bp.blogspot.com/-VQHAVI0hQMw/UJhdiIdIAOI/AAAAAAAADzg/RftfgxIXwFc/w1200-h630-p-k-no-nu/Seamless+carpet+fabric+pattern+texture+2.jpg");
@@ -12,10 +13,16 @@ body{
 }
 
 a{
-    display: none;
+    position: absolute;
     color: white;
     font-size: 150%;
     z-index: 4;
+    visibility: hidden;
+    animation-name: fromHideToDisplay;
+    animation-duration: 1s;
+    animation-delay: 10500ms;
+    animation-fill-mode: both;
+    /*border: 3px solid white;*/
 }
 
 #nameBot1{
@@ -33,6 +40,21 @@ a{
     left: 75%;
 }
 
+#statusBot1{
+    top: 58%;
+    left: 19%;
+}
+
+#statusBot2{
+    top: 39%;
+    left: 47%;
+}
+
+#statusBot3{
+    top: 58%;
+    left: 74%;
+}
+
 .cards > img{
     position: absolute;
     transition: box-shadow .3s;
@@ -40,124 +62,9 @@ a{
     z-index: 2;
 }
 
-#card{
-    left: 46%;
-    top: 63%;
-    animation-name: card1player1;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
-#card2{
-    left: 49%;
-    top: 64%;
-    animation-name: card2player1;
-    animation-duration: 1s;
-    animation-delay: 1s;
-    animation-fill-mode: both;
-}
-
-/*Cards Bot 1*/
-#card1Bot1{
-    top: 45%;
-    left: 22%;
-    animation-name: card1bot1;
-    animation-duration: 1s;
-    animation-delay: 2s;
-    animation-fill-mode: both;
-}
-
-#card2Bot1{
-    top: 46%;
-    left: 25%;
-    animation-name: card2bot1;
-    animation-duration: 1s;
-    animation-delay: 3s;
-    animation-fill-mode: both;
-}
-
-/*Cards Bot 2*/
-#card1Bot2{
-    top: 26%;
-    left: 46%;
-    animation-name: card1bot2;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: both;
-}
-
-#card2Bot2{
-    top: 27%;
-    left: 49%;
-    animation-name: card2bot2;
-    animation-duration: 1s;
-    animation-delay: 5s;
-    animation-fill-mode: both;
-}
-
-/*Cards Bot 3*/
-#card1Bot3{
-    top: 45%;
-    left: 74%;
-    animation-name: card1bot3;
-    animation-duration: 1s;
-    animation-delay: 6s;
-    animation-fill-mode: both;
-}
-
-#card2Bot3{
-    top: 46%;
-    left: 77%;
-    animation-name: card2bot3;
-    animation-duration: 1s;
-    animation-delay: 7s;
-    animation-fill-mode: both;
-}
-
-/*Table Cards*/
-#tableCard1{
-    top: 45%;
-    left: 40%;
-    animation-name: tableCard1;
-    animation-duration: 500ms;
-    animation-delay: 8s;
-    animation-fill-mode: both;
-}
-
-#tableCard2{
-    top: 45%;
-    left: 44%;
-    animation-name: tableCard2;
-    animation-duration: 500ms;
-    animation-delay: 8500ms;
-    animation-fill-mode: both;
-}
-
-#tableCard3{
-    top: 45%;
-    left: 48%;
-    animation-name: tableCard3;
-    animation-duration: 500ms;
-    animation-delay: 9s;
-    animation-fill-mode: both;
-}
-
-#tableCard4{
-    top: 45%;
-    left: 52%;
-    animation-name: tableCard4;
-    animation-duration: 500ms;
-    animation-delay: 9500ms;
-    animation-fill-mode: both;
-}
-
-#tableCard5{
-    top: 45%;
-    left: 56%;
-    animation-name: tableCard5;
-    animation-duration: 500ms;
-    animation-delay: 10s;
-    animation-fill-mode: both;
+div > button{
+    position: absolute;
+    left: 50%;
 }
 
 #kartenstapel{
@@ -179,11 +86,17 @@ table{
     border:1px solid white;
     top: 20px;
     right: 20px;
+    width: 12%;
 }
 
 th, td{
+    padding: 3px;
     color: white;
     border:1px solid white;
+}
+
+td:hover {
+    background-color: #73737350;
 }
 
 #desk{
@@ -196,21 +109,11 @@ th, td{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 73%;
-    z-index: 1;
+    z-index: -1;
 }
 
-#button{
+button{
     width: 100px;
     height: 50px;
-    position: fixed;
-    left: 5px;
-    bottom: 5px;
 }
 
-#button1{
-    width: 100px;
-    height: 50px;
-    position: fixed;
-    left: 5px;
-    bottom: 5px;
-}

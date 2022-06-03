@@ -68,3 +68,13 @@
     from {left: 34%; top: 45%;}
     to {left: 56%; top: 45%;}
 }
+
+@keyframes text {
+    from {display: none}
+    to {color: white;}
+}
+
+@keyframes fromHideToDisplay {
+    from {visibility: hidden}
+    to {visibility: visible}
+}

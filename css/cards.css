@@ -1,0 +1,119 @@
+#card{
+    left: 46%;
+    top: 63%;
+    animation-name: card1player1;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+#card2{
+    left: 49%;
+    top: 64%;
+    animation-name: card2player1;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+}
+
+/*Cards Bot 1*/
+#card1Bot1{
+    top: 45%;
+    left: 22%;
+    animation-name: card1bot1;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+}
+
+#card2Bot1{
+    top: 46%;
+    left: 25%;
+    animation-name: card2bot1;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+}
+
+/*Cards Bot 2*/
+#card1Bot2{
+    top: 26%;
+    left: 46%;
+    animation-name: card1bot2;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+}
+
+#card2Bot2{
+    top: 27%;
+    left: 49%;
+    animation-name: card2bot2;
+    animation-duration: 1s;
+    animation-delay: 5s;
+    animation-fill-mode: both;
+}
+
+/*Cards Bot 3*/
+#card1Bot3{
+    top: 45%;
+    left: 74%;
+    animation-name: card1bot3;
+    animation-duration: 1s;
+    animation-delay: 6s;
+    animation-fill-mode: both;
+}
+
+#card2Bot3{
+    top: 46%;
+    left: 77%;
+    animation-name: card2bot3;
+    animation-duration: 1s;
+    animation-delay: 7s;
+    animation-fill-mode: both;
+}
+
+/*Table Cards*/
+#tableCard1{
+    top: 45%;
+    left: 40%;
+    animation-name: tableCard1;
+    animation-duration: 500ms;
+    animation-delay: 8s;
+    animation-fill-mode: both;
+}
+
+#tableCard2{
+    top: 45%;
+    left: 44%;
+    animation-name: tableCard2;
+    animation-duration: 500ms;
+    animation-delay: 8500ms;
+    animation-fill-mode: both;
+}
+
+#tableCard3{
+    top: 45%;
+    left: 48%;
+    animation-name: tableCard3;
+    animation-duration: 500ms;
+    animation-delay: 9s;
+    animation-fill-mode: both;
+}
+
+#tableCard4{
+    top: 45%;
+    left: 52%;
+    animation-name: tableCard4;
+    animation-duration: 500ms;
+    animation-delay: 9500ms;
+    animation-fill-mode: both;
+}
+
+#tableCard5{
+    top: 45%;
+    left: 56%;
+    animation-name: tableCard5;
+    animation-duration: 500ms;
+    animation-delay: 10s;
+    animation-fill-mode: both;
+}
