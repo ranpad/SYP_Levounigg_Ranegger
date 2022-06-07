@@ -14,47 +14,107 @@ var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",  
              "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
              "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
 
-var checks=["1","1","1","1","2" ,"2","2","2","3","3","3","3","4","4","4","4","5" ,"5","5","5","6","6","6","6","7","7","7","7","8" ,"8","8","8","9","9","9","9","10","10","10","10","11" ,"11","11","11","12","12","12","12","13","13","13","13","14" ,"14","14","14","15","15","15","15"];
+var checks=["1","1","1","1",
+            "2","2","2","2",
+            "3","3","3","3",
+            "4","4","4","4",
+            "5","5","5","5",
+            "6","6","6","6",
+            "7","7","7","7",
+            "8","8","8","8",
+            "9","9","9","9",
+            "10","10","10","10",
+            "11","11","11","11",
+            "12","12","12","12",
+            "13","13","13","13"];
 
 var inhalt=[];
 function showcard() {
-
+    console.log(checks);
+    console.log(myPix);
+    document.getElementById("pair").style.background="transparent";
+    document.getElementById("twoPair").style.background="transparent";
     var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
+    checks.splice(randomNum,1);
 
     var randomNum2 = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2").src = myPix[randomNum2];
     myPix.splice(randomNum2,1);
     inhalt.push(checks[randomNum2]);
+    checks.splice(randomNum2,1);
 
     var randomNum3 = Math.floor(Math.random() * myPix.length);
     document.getElementById("tableCard1").src = myPix[randomNum3];
     myPix.splice(randomNum3,1);
     inhalt.push(checks[randomNum3]);
+    checks.splice(randomNum3,1);
 
     var randomNum4 = Math.floor(Math.random() * myPix.length);
     document.getElementById("tableCard2").src = myPix[randomNum4];
     myPix.splice(randomNum4,1);
     inhalt.push(checks[randomNum4]);
+    checks.splice(randomNum4,1);
 
     var randomNum5 = Math.floor(Math.random() * myPix.length);
     document.getElementById("tableCard3").src = myPix[randomNum5];
     myPix.splice(randomNum5,1);
     inhalt.push(checks[randomNum5]);
-    if(pair()==true){
-        console.log("true");
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+    console.log(inhalt);
+    checks.splice(randomNum5,1);
+
+    if(threeOfaKind()==true){
+        console.log(inhalt);
+        document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
+    if(pair()==true){
+
+        console.log(inhalt);
+        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+
+    }
+    if(DoublePair() == true){
+        document.getElementById("theeOfaKind").style.background="transparent";
+        document.getElementById("pair").style.background="transparent";
+        console.log(inhalt);
+        document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
+
+    }
+    inhalt=[];
         //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
 
 }
-function pair(){
+function threeOfaKind(){
     var valuesSoFar = Object.create(null);
-    for (var i = 0; i < inhalt.length; ++i) {
+    for (var i = 1; i < inhalt.length; ++i) {
         var value = inhalt[i];
         if (value in valuesSoFar) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+    }
+    return false;
+}
+function DoublePair(){
+    var valuesSoFar = Object.create(null);
+    for (var i = 1; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+    }
+    return false;
+}
+function pair(){
+    var valuesSoFar = Object.create(null);
+    for (var i = 1; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            inhalt.splice(i,1);
+            DoublePair();
             return true;
         }
         valuesSoFar[value] = true;
