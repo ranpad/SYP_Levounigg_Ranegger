@@ -63,8 +63,12 @@ function showcard() {
     inhalt.push(checks[randomNum5]);
     console.log(inhalt);
     checks.splice(randomNum5,1);
+
+    document.getElementById("theeOfaKind").style.background="transparent";
+    document.getElementById("pair").style.background="transparent";
+    document.getElementById("twoPair").style.background="transparent";
+
     var abfrage=threeOfaKind();
-    console.log(abfrage);
     if(abfrage==true){
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
