@@ -1,4 +1,4 @@
-let i=0;
+
 
 var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
              "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
@@ -63,22 +63,24 @@ function showcard() {
     inhalt.push(checks[randomNum5]);
     console.log(inhalt);
     checks.splice(randomNum5,1);
-
-    if(threeOfaKind()==true){
+    var abfrage=threeOfaKind();
+    console.log(abfrage);
+    if(abfrage==true){
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
-    else if(pair()==true){
-        //document.getElementById("theeOfaKind").style.background="transparent";
+   if(pair()==true&&abfrage!=true){
+        document.getElementById("theeOfaKind").style.background="transparent";
         console.log(inhalt);
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
-        if(DoublePair() == true){
-            //document.getElementById("theeOfaKind").style.background="transparent";
-            document.getElementById("pair").style.background="transparent";
-            console.log(inhalt);
-            document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
-        }
+    }
+    if(DoublePair() == true&&abfrage!=true){
+        document.getElementById("theeOfaKind").style.background="transparent";
+        document.getElementById("pair").style.background="transparent";
+        console.log(inhalt);
+        document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
+
     }
 
     inhalt=[];
@@ -86,17 +88,16 @@ function showcard() {
 
 }
 function threeOfaKind(){
-    var valuesSoFar = Object.create(null);
     console.log(inhalt);
     let i=0;
-    let c=0;
+    let c=1;
     let c2=1;
     while(i<=inhalt.length){
-        while(c<inhalt.length){
-            if(inhalt[i]===inhalt[c+1]){
+        while(c<=inhalt.length){
+            if(inhalt[i]===inhalt[c]){
                 c2++;
                 console.log(c2);
-                if(c2===3){
+                if(c2==3){
                     return true;
                 }
             }
@@ -108,7 +109,7 @@ function threeOfaKind(){
 }
 function DoublePair(){
     var valuesSoFar = Object.create(null);
-    for (var i = 1; i < inhalt.length; ++i) {
+    for (let i = 0; i < inhalt.length; ++i) {
         var value = inhalt[i];
         if (value in valuesSoFar) {
             return true;
@@ -119,7 +120,7 @@ function DoublePair(){
 }
 function pair(){
     var valuesSoFar = Object.create(null);
-    for (var i = 1; i < inhalt.length; ++i) {
+    for (let i = 0; i < inhalt.length; ++i) {
         var value = inhalt[i];
         if (value in valuesSoFar) {
             inhalt.splice(i,1);
