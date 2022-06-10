@@ -64,6 +64,21 @@ function showcard() {
     console.log(inhalt);
     checks.splice(randomNum5,1);
 
+    var randomNum6 = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard4").src = myPix[randomNum6];
+    myPix.splice(randomNum6,1);
+    inhalt.push(checks[randomNum6]);
+    console.log(inhalt);
+    checks.splice(randomNum6,1);
+
+    var randomNum7 = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard5").src = myPix[randomNum7];
+    myPix.splice(randomNum7,1);
+    inhalt.push(checks[randomNum7]);
+    console.log(inhalt);
+    checks.splice(randomNum7,1);
+
+
     if(threeOfaKind()==true){
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
