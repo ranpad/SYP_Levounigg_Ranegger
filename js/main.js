@@ -30,8 +30,7 @@ var checks=["1","1","1","1",
 
 var inhalt=[];
 function showcard() {
-    console.log(checks);
-    console.log(myPix);
+
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
     var randomNum = Math.floor(Math.random() * myPix.length);
@@ -69,31 +68,41 @@ function showcard() {
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
-    if(pair()==true){
-
+    else if(pair()==true){
+        //document.getElementById("theeOfaKind").style.background="transparent";
         console.log(inhalt);
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
+        if(DoublePair() == true){
+            //document.getElementById("theeOfaKind").style.background="transparent";
+            document.getElementById("pair").style.background="transparent";
+            console.log(inhalt);
+            document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
+        }
     }
-    if(DoublePair() == true){
-        document.getElementById("theeOfaKind").style.background="transparent";
-        document.getElementById("pair").style.background="transparent";
-        console.log(inhalt);
-        document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
-    }
     inhalt=[];
         //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
 
 }
 function threeOfaKind(){
     var valuesSoFar = Object.create(null);
-    for (var i = 1; i < inhalt.length; ++i) {
-        var value = inhalt[i];
-        if (value in valuesSoFar) {
-            return true;
+    console.log(inhalt);
+    let i=0;
+    let c=0;
+    let c2=1;
+    while(i<=inhalt.length){
+        while(c<inhalt.length){
+            if(inhalt[i]===inhalt[c+1]){
+                c2++;
+                console.log(c2);
+                if(c2===3){
+                    return true;
+                }
+            }
+            c++;
         }
-        valuesSoFar[value] = true;
+        i++;
     }
     return false;
 }
