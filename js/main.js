@@ -69,6 +69,7 @@ function showcard() {
     document.getElementById("twoPair").style.background="transparent";
 
     var abfrage=threeOfaKind();
+    straight();
     if(abfrage==true){
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
@@ -89,6 +90,22 @@ function showcard() {
 
     inhalt=[];
         //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
+
+}
+
+function straight(){
+    inhalt.sort((a, b) => a - b);
+    var inhalt2=[];
+    let i=0;
+    let c=0;
+    while(i<inhalt2.length){
+
+
+    }
+
+    inhalt2=inhalt;
+
+    console.log(inhalt2);
 
 }
 function threeOfaKind(){
