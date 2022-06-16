@@ -29,6 +29,7 @@ var checks=["1","1","1","1",
             "13","13","13","13"];
 
 var inhalt=[];
+var flush=[];
 function showcard() {
 
     document.getElementById("pair").style.background="transparent";
@@ -37,75 +38,161 @@ function showcard() {
     document.getElementById("card").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
     checks.splice(randomNum,1);
 
-    var randomNum2 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("card2").src = myPix[randomNum2];
-    myPix.splice(randomNum2,1);
-    inhalt.push(checks[randomNum2]);
-    checks.splice(randomNum2,1);
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("card2").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    checks.splice(randomNum,1);
 
-    var randomNum3 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard1").src = myPix[randomNum3];
-    myPix.splice(randomNum3,1);
-    inhalt.push(checks[randomNum3]);
-    checks.splice(randomNum3,1);
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard1").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    checks.splice(randomNum,1);
 
-    var randomNum4 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard2").src = myPix[randomNum4];
-    myPix.splice(randomNum4,1);
-    inhalt.push(checks[randomNum4]);
-    checks.splice(randomNum4,1);
+    randomNum4 = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard2").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    checks.splice(randomNum,1);
 
-    var randomNum5 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard3").src = myPix[randomNum5];
-    myPix.splice(randomNum5,1);
-    inhalt.push(checks[randomNum5]);
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard3").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
     console.log(inhalt);
-    checks.splice(randomNum5,1);
+    checks.splice(randomNum,1);
 
     document.getElementById("theeOfaKind").style.background="transparent";
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
 
     var abfrage=threeOfaKind();
-    straight();
+    flush1();
+    if(straightFlush()==true){
+        console.log(inhalt);
+        document.getElementById("straightFlush").style.background="rgb(255, 0, 0)";
+    }
+    if(straight()==true){
+        console.log(inhalt);
+        document.getElementById("straight").style.background="rgb(255, 0, 0)";
+    }
     if(abfrage==true){
         console.log(inhalt);
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
    if(pair()==true&&abfrage!=true){
-        document.getElementById("theeOfaKind").style.background="transparent";
         console.log(inhalt);
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
 
     }
     if(DoublePair() == true&&abfrage!=true){
-        document.getElementById("theeOfaKind").style.background="transparent";
-        document.getElementById("pair").style.background="transparent";
         console.log(inhalt);
         document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
     }
-
+    flush=[];
     inhalt=[];
         //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
 
 }
-
-function straight(){
-    inhalt.sort((a, b) => a - b);
-    var inhalt2=[];
+function straightFlush(){
+    flush.sort((a, b) => a - b);
+    console.log(flush);
+    let  check1;
+    let check2;
     let i=0;
     let c=0;
-    while(i<inhalt2.length){
+    let check3=1;
+    while(i<=flush.length){
+        c=i;
+        check1=flush[i]
+        while(c<=flush.length){
+            check2=flush[c+1]
+            if(check2==check1+4){
+                check3++;
+                if(check3==5){
+                    return true;
+                }
+            }
+            c++;
+        }
+        i++;
 
 
     }
+    return false;
 
-    inhalt2=inhalt;
+}
+function flush1(){
+    flush.sort((a, b) => a - b);
+    console.log(flush);
+    flush=[12,36,72,144,288];
+    let c=0;
+    let mod;
+    let i;
+    let check=1;
+    while(c<=flush.length){
+        i=c;
+        if(flush[c]%2==0){
+            mod=2;
+        }
+        else if(flush[c]%3==0){
+            mod=3;
+        }
+        else if(flush[c]%4==0){
+            mod=4;
+        }else{
+            mod=1
+        }
+        while(i<=flush.length){
+            if(flush[i+1]%mod==0){
+                check++;
+                console.log(check,mod)
+                if(check==5){
+                    return true;
+                }
+            }
+            i++;
+        }
+        c++;
+        check=1;
 
-    console.log(inhalt2);
+    }
+    return false;
+}
+function straight(){
+    inhalt.sort((a, b) => a - b);
+    let  check1;
+    let check2;
+    let i=0;
+    let c=0;
+    let check3=1;
+    while(i<=inhalt.length){
+        c=i;
+        check1=inhalt[i]
+        while(c<=inhalt.length){
+            check2=inhalt[c+1]
+            if(check2==check1+1){
+                check3++;
+                if(check3==5){
+                    return true;
+                }
+            }
+            c++;
+        }
+        i++;
+
+
+    }
+    return false;
 
 }
 function threeOfaKind(){
