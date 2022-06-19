@@ -29,14 +29,17 @@ var checks=["1","1","1","1",
 
 var inhalt=[];
 var flush=[];
+
 function showcard() {
 
     if(myPix.length<=6){
         console.log(myPix.length);
         myPix=refill;
     }
+
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
+
     var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card").src = myPix[randomNum];
     myPix.splice(randomNum,1);
@@ -49,44 +52,6 @@ function showcard() {
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
-    checks.splice(randomNum,1);
-
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard1").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    checks.splice(randomNum,1);
-
-    randomNum4 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard2").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    checks.splice(randomNum,1);
-
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard3").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    checks.splice(randomNum,1);
-
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard4").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    checks.splice(randomNum,1);
-
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard5").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
     checks.splice(randomNum,1);
 
     document.getElementById("theeOfaKind").style.background="transparent";
@@ -130,45 +95,93 @@ function showcard() {
     flush=[];
     inhalt=[];
     //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
+}
 
+function showFirst3Cards(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard1").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum4 = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard2").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard3").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    checks.splice(randomNum,1);
 }
-function RoyalFlush(){
-    flush.sort((a, b) => a - b);
-    inhalt.sort((a, b) => a - b);
-    let i=0;
-    let c=0;
-    let check=0;
-    let check2=0;
-    let check3=1;
-    while(i<=inhalt.length){
-        c=i;
-        if(inhalt[i]==9){
-            check=flush[i];
-            while(c<=flush.length){
-                check2=flush[c+i];
-                if(check==check2+4){
-                    check3++;
-                    if(check3==5){
-                        return true;
-                    }
-                }
-            }
+
+function show4thCard(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard4").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    checks.splice(randomNum,1);
+}
+
+function show5thCard(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard5").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    checks.splice(randomNum,1);
+}
+
+function pair(){
+    var valuesSoFar = Object.create(null);
+    for (let i = 0; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            inhalt.splice(i,1);
+            DoublePair();
+            return true;
         }
+        valuesSoFar[value] = true;
     }
-    return false
+    return false;
 }
-function fourOfaKind(){
+
+function DoublePair(){
+    var valuesSoFar = Object.create(null);
+    for (let i = 0; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+    }
+    return false;
+}
+
+function threeOfaKind(){
     let i=0;
     let c=1;
     let c2=1;
+    var safe=[];
     while(i<=inhalt.length){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
+                safe.push(c);
                 console.log(c2,inhalt);
-                if(c2==4){
+                if(c2==3){
                     i=1;
-                    while(i<=4){
+                    while(i<=3){
+                        inhalt.splice(safe[i],1);
                         i++;
                     }
                     console.log(inhalt);
@@ -181,20 +194,20 @@ function fourOfaKind(){
     }
     return false;
 }
-function straightFlush(){
-    flush.sort((a, b) => a - b);
-    console.log(flush);
+
+function straight(){
+    inhalt.sort((a, b) => a - b);
     let  check1;
     let check2;
     let i=0;
     let c=0;
-    let check3=0;
-    while(i<=flush.length){
+    let check3=1;
+    while(i<=inhalt.length){
         c=i;
-        check1=flush[i];
-        while(c<flush.length){
-            check2=flush[c+1];
-            if(check2==check1+4){
+        check1=inhalt[i]
+        while(c<=inhalt.length){
+            check2=inhalt[c+1]
+            if(check2==check1+1){
                 check3++;
                 if(check3==5){
                     return true;
@@ -203,12 +216,10 @@ function straightFlush(){
             c++;
         }
         i++;
-
-
     }
     return false;
-
 }
+
 function flush1(){
     flush.sort((a, b) => a - b);
     console.log(flush);
@@ -239,52 +250,22 @@ function flush1(){
         }
         c++;
         check=1;
-
     }
     return false;
 }
-function straight(){
-    inhalt.sort((a, b) => a - b);
-    let  check1;
-    let check2;
-    let i=0;
-    let c=0;
-    let check3=1;
-    while(i<=inhalt.length){
-        c=i;
-        check1=inhalt[i]
-        while(c<=inhalt.length){
-            check2=inhalt[c+1]
-            if(check2==check1+1){
-                check3++;
-                if(check3==5){
-                    return true;
-                }
-            }
-            c++;
-        }
-        i++;
 
-
-    }
-    return false;
-
-}
-function threeOfaKind(){
+function fourOfaKind(){
     let i=0;
     let c=1;
     let c2=1;
-    var safe=[];
     while(i<=inhalt.length){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
-                safe.push(c);
                 console.log(c2,inhalt);
-                if(c2==3){
+                if(c2==4){
                     i=1;
-                    while(i<=3){
-                        inhalt.splice(safe[i],1);
+                    while(i<=4){
                         i++;
                     }
                     console.log(inhalt);
@@ -297,30 +278,61 @@ function threeOfaKind(){
     }
     return false;
 }
-function DoublePair(){
-    var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
-        if (value in valuesSoFar) {
-            return true;
+
+function straightFlush(){
+    flush.sort((a, b) => a - b);
+    console.log(flush);
+    let  check1;
+    let check2;
+    let i=0;
+    let c=0;
+    let check3=0;
+    while(i<=flush.length){
+        c=i;
+        check1=flush[i];
+        while(c<flush.length){
+            check2=flush[c+1];
+            if(check2==check1+4){
+                check3++;
+                if(check3==5){
+                    return true;
+                }
+            }
+            c++;
         }
-        valuesSoFar[value] = true;
+        i++;
     }
     return false;
 }
-function pair(){
-    var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
-        if (value in valuesSoFar) {
-            inhalt.splice(i,1);
-            DoublePair();
-            return true;
+
+function RoyalFlush(){
+    flush.sort((a, b) => a - b);
+    inhalt.sort((a, b) => a - b);
+    let i=0;
+    let c=0;
+    let check=0;
+    let check2=0;
+    let check3=1;
+    while(i<=inhalt.length){
+        c=i;
+        if(inhalt[i]==9){
+            check=flush[i];
+            while(c<=flush.length){
+                check2=flush[c+i];
+                if(check==check2+4){
+                    check3++;
+                    if(check3==5){
+                        return true;
+                    }
+                }
+            }
         }
-        valuesSoFar[value] = true;
     }
-    return false;
+    return false
 }
+
+
+
 function check(check,check2,check3,check4,check5){
 
     console.log(check,check2);
