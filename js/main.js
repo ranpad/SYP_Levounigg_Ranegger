@@ -109,6 +109,7 @@ function showcard() {
     }
 
 
+
     let abfrage=threeOfaKind();
     let pairC=pair();
     if(abfrage==true && pairC==true){
