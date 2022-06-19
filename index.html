@@ -31,8 +31,11 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/poker.js"></script>
 
-        <table>
+        <a class="status" id="totalPot">Total Pot: 0 $</a>
+
+        <table id="table">
             <tr>
                 <th>Card Combinations</th>
             </tr>
@@ -120,6 +123,8 @@
             <button>Fold</button>
             <button>Check</button>
             <button>Bet: X</button>
+            <a id="balance">Balance: 500 $</a>
+
         </div>
 
         <div class="buttonGroupBottom">
@@ -128,35 +133,35 @@
             <button>50$</button>
             <button>80$</button>
             <button>100$</button>
-            <button>ALL IN!!!</button>
+            <button onclick="allIn()">ALL IN!!!</button>
         </div>
         </div>
 
 
 
         <!-- Items for Bot 1 -->
-        <a id="nameBot1">Bot - 1</a>
+        <a class="status" id="nameBot1">Bot - 1</a>
         <div class="cards">
         <img src="img/cards/PokerCardBackside.png" id="card1Bot1" alt="Fehler">
         <img src="img/cards/PokerCardBackside.png" id="card2Bot1" alt="Fehler">
         </div>
-        <a id="statusBot1">500$ - 0$</a>
+        <a class="status" id="statusBot1">500$ - 0$</a>
 
         <!-- Items for Bot 2 -->
-        <a id="nameBot2">Bot - 2</a>
+        <a class="status" id="nameBot2">Bot - 2</a>
         <div class="cards">
         <img src="img/cards/PokerCardBackside.png" id="card1Bot2" alt="Fehler">
         <img src="img/cards/PokerCardBackside.png" id="card2Bot2" alt="Fehler">
         </div>
-        <a id="statusBot2">500$ - 0$</a>
+        <a class="status" id="statusBot2">500$ - 0$</a>
 
         <!-- Items for Bot 3 -->
-        <a id="nameBot3">Bot - 3</a>
+        <a class="status" id="nameBot3">Bot - 3</a>
         <div class="cards">
         <img src="img/cards/PokerCardBackside.png" id="card1Bot3" alt="Fehler">
         <img src="img/cards/PokerCardBackside.png" id="card2Bot3" alt="Fehler">
         </div>
-        <a id="statusBot3">500$ - 0$</a>
+        <a class="status" id="statusBot3">500$ - 0$</a>
 
         <!-- Cards for the Table -->
         <div class="cards">

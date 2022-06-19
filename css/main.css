@@ -15,6 +15,11 @@ body{
 a{
     position: absolute;
     color: white;
+
+    /*border: 3px solid white;*/
+}
+
+.status{
     font-size: 150%;
     z-index: 4;
     visibility: hidden;
@@ -22,7 +27,12 @@ a{
     animation-duration: 1s;
     animation-delay: 10500ms;
     animation-fill-mode: both;
-    /*border: 3px solid white;*/
+}
+
+#totalPot{
+    font-size: 150%;
+    top: 58%;
+    left: 45%;
 }
 
 #nameBot1{
@@ -31,7 +41,7 @@ a{
 }
 
 #nameBot2{
-    top: 22%;
+    top: 25%;
     left: 47%;
 }
 
@@ -46,8 +56,8 @@ a{
 }
 
 #statusBot2{
-    top: 39%;
-    left: 47%;
+    top: 41%;
+    left: 46%;
 }
 
 #statusBot3{
@@ -64,12 +74,16 @@ a{
 
 div.rahmen{
     /*border: 5px solid black;*/
+    height: auto;
+    width: auto;
 }
 
 .buttonGroupTop{
     position: absolute;
-    left: 30%;
+    left: 31%;
     top: 83%;
+    height: 10%;
+    width: 50%;
     /*border-top: 5px solid black;
     border-left: 5px solid black;
     border-right: 5px solid black;
@@ -78,8 +92,10 @@ div.rahmen{
 
 .buttonGroupBottom{
     position: absolute;
-    left: 30%;
+    left: 31%;
     top: 90%;
+    height: 10%;
+    width: 50%;
     /*border-bottom: 5px solid black;
     border-left: 5px solid black;
     border-right: 5px solid black;
@@ -132,7 +148,13 @@ td:hover {
 }
 
 button{
-    width: 100px;
-    height: 50px;
+    width: 13%;
+    height: 52%;
+}
+
+#balance{
+    font-size: 230%;
+    line-height: 112%;
+    padding-left: 5%;
 }
 
