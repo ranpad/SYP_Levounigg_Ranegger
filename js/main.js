@@ -1,19 +1,23 @@
-var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
-    "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
-    "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
-    "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
-    "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
-    "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
-    "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
-    "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
-    "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
-    "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
+
+
+     myPix = [
+
+            "img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
+            "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
+            "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
+            "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
+            "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
+            "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
+            "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
+            "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
+            "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
+            "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
     "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
     "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
     "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
-var refill=[];
+ refill=[];
 refill=myPix;
-var checks=["1","1","1","1",
+ checks=["1","1","1","1",
     "2","2","2","2",
     "3","3","3","3",
     "4","4","4","4",
@@ -27,19 +31,20 @@ var checks=["1","1","1","1",
     "12","12","12","12",
     "13","13","13","13"];
 
-var inhalt=[];
-var flush=[];
 
+ var inhalt=[];
+ var flush=[];
+ inhalt2=[];
+ flush2=[];
 function showcard() {
-
+    flush2=[];
+    inhalt2=[];
     if(myPix.length<=6){
         console.log(myPix.length);
         myPix=refill;
     }
-
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
-
     var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card").src = myPix[randomNum];
     myPix.splice(randomNum,1);
@@ -54,6 +59,54 @@ function showcard() {
     flush.push(randomNum);
     checks.splice(randomNum,1);
 
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard1").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum4 = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard2").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard3").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard4").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard5").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
     document.getElementById("theeOfaKind").style.background="transparent";
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
@@ -64,7 +117,7 @@ function showcard() {
     if(fourOfaKind()==true){
         document.getElementById("fourOfaKind").style.background="rgb(255, 0, 0)";
     }
-    else if(flush1()==true){
+    else if(flushfunc()==true){
         document.getElementById("flush").style.background="rgb(255, 0, 0)";
     }
     else if(straight()==true){
@@ -94,94 +147,49 @@ function showcard() {
     }
     flush=[];
     inhalt=[];
+
+    Bot1();
+
     //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
+
 }
-
-function showFirst3Cards(){
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard1").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    checks.splice(randomNum,1);
-
-    randomNum4 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard2").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    checks.splice(randomNum,1);
-
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard3").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    checks.splice(randomNum,1);
-}
-
-function show4thCard(){
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard4").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    checks.splice(randomNum,1);
-}
-
-function show5thCard(){
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard5").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    checks.splice(randomNum,1);
-}
-
-function pair(){
-    var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
-        if (value in valuesSoFar) {
-            inhalt.splice(i,1);
-            DoublePair();
-            return true;
+function RoyalFlush(){
+    flush.sort((a, b) => a - b);
+    inhalt.sort((a, b) => a - b);
+    let i=0;
+    let c=0;
+    let check=0;
+    let check2=0;
+    let check3=1;
+    while(i<=inhalt.length){
+        c=i;
+        if(inhalt[i]==9){
+            check=flush[i];
+            while(c<=flush.length){
+                check2=flush[c+i];
+                if(check==check2+4){
+                    check3++;
+                    if(check3==5){
+                        return true;
+                    }
+                }
+            }
         }
-        valuesSoFar[value] = true;
     }
-    return false;
+    return false
 }
-
-function DoublePair(){
-    var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
-        if (value in valuesSoFar) {
-            return true;
-        }
-        valuesSoFar[value] = true;
-    }
-    return false;
-}
-
-function threeOfaKind(){
+function fourOfaKind(){
     let i=0;
     let c=1;
     let c2=1;
-    var safe=[];
     while(i<=inhalt.length){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
-                safe.push(c);
                 console.log(c2,inhalt);
-                if(c2==3){
+                if(c2==4){
                     i=1;
-                    while(i<=3){
-                        inhalt.splice(safe[i],1);
+                    while(i<=4){
                         i++;
                     }
                     console.log(inhalt);
@@ -194,20 +202,20 @@ function threeOfaKind(){
     }
     return false;
 }
-
-function straight(){
-    inhalt.sort((a, b) => a - b);
+function straightFlush(){
+    flush.sort((a, b) => a - b);
+    console.log(flush);
     let  check1;
     let check2;
     let i=0;
     let c=0;
-    let check3=1;
-    while(i<=inhalt.length){
+    let check3=0;
+    while(i<=flush.length){
         c=i;
-        check1=inhalt[i]
-        while(c<=inhalt.length){
-            check2=inhalt[c+1]
-            if(check2==check1+1){
+        check1=flush[i];
+        while(c<flush.length){
+            check2=flush[c+1];
+            if(check2==check1+4){
                 check3++;
                 if(check3==5){
                     return true;
@@ -216,11 +224,13 @@ function straight(){
             c++;
         }
         i++;
+
+
     }
     return false;
-}
 
-function flush1(){
+}
+function flushfunc(){
     flush.sort((a, b) => a - b);
     console.log(flush);
     let c=0;
@@ -250,22 +260,52 @@ function flush1(){
         }
         c++;
         check=1;
+
     }
     return false;
 }
+function straight(){
+    inhalt.sort((a, b) => a - b);
+    let  check1;
+    let check2;
+    let i=0;
+    let c=0;
+    let check3=1;
+    while(i<=inhalt.length){
+        c=i;
+        check1=inhalt[i]
+        while(c<=inhalt.length){
+            check2=inhalt[c+1]
+            if(check2==check1+1){
+                check3++;
+                if(check3==5){
+                    return true;
+                }
+            }
+            c++;
+        }
+        i++;
 
-function fourOfaKind(){
+
+    }
+    return false;
+
+}
+function threeOfaKind(){
     let i=0;
     let c=1;
     let c2=1;
+    var safe=[];
     while(i<=inhalt.length){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
+                safe.push(c);
                 console.log(c2,inhalt);
-                if(c2==4){
+                if(c2==3){
                     i=1;
-                    while(i<=4){
+                    while(i<=3){
+                        inhalt.splice(safe[i],1);
                         i++;
                     }
                     console.log(inhalt);
@@ -278,61 +318,30 @@ function fourOfaKind(){
     }
     return false;
 }
-
-function straightFlush(){
-    flush.sort((a, b) => a - b);
-    console.log(flush);
-    let  check1;
-    let check2;
-    let i=0;
-    let c=0;
-    let check3=0;
-    while(i<=flush.length){
-        c=i;
-        check1=flush[i];
-        while(c<flush.length){
-            check2=flush[c+1];
-            if(check2==check1+4){
-                check3++;
-                if(check3==5){
-                    return true;
-                }
-            }
-            c++;
+function DoublePair(){
+    var valuesSoFar = Object.create(null);
+    for (let i = 0; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            return true;
         }
-        i++;
+        valuesSoFar[value] = true;
     }
     return false;
 }
-
-function RoyalFlush(){
-    flush.sort((a, b) => a - b);
-    inhalt.sort((a, b) => a - b);
-    let i=0;
-    let c=0;
-    let check=0;
-    let check2=0;
-    let check3=1;
-    while(i<=inhalt.length){
-        c=i;
-        if(inhalt[i]==9){
-            check=flush[i];
-            while(c<=flush.length){
-                check2=flush[c+i];
-                if(check==check2+4){
-                    check3++;
-                    if(check3==5){
-                        return true;
-                    }
-                }
-            }
+function pair(){
+    var valuesSoFar = Object.create(null);
+    for (let i = 0; i < inhalt.length; ++i) {
+        var value = inhalt[i];
+        if (value in valuesSoFar) {
+            inhalt.splice(i,1);
+            DoublePair();
+            return true;
         }
+        valuesSoFar[value] = true;
     }
-    return false
+    return false;
 }
-
-
-
 function check(check,check2,check3,check4,check5){
 
     console.log(check,check2);
@@ -371,8 +380,5 @@ function check(check,check2,check3,check4,check5){
     myPix.splice(check2,1);
 
     exports.myPix2=myPix;
-}
-
-function chooseCard(){
 
 }
