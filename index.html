@@ -115,31 +115,29 @@
 
         <!-- CardsPlayer -->
         <div id="playerCards" class="cards">
-        <img src="img/cards/PokerCardBackside.png" id="card" onclick="showcard()">
-        <img src="img/cards/PokerCardBackside.png" id="card2" onclick="showcard()">
+        <img src="img/cards/PokerCardBackside.png" id="card" onclick="showcard(), main()">
+        <img src="img/cards/PokerCardBackside.png" id="card2" onclick="showcard(), main()">
         </div>
 
         <!-- Buttons Player -->
         <div class="rahmen">
         <div class="buttonGroupTop">
-            <button>Fold</button>
-            <button>Check</button>
-            <button>Bet: X</button>
+            <button id="fold">Fold</button>
+            <button id="check">Check</button>
+            <button id="bet">Bet: X</button>
             <a id="balance">Balance: 500 $</a>
 
         </div>
 
         <div class="buttonGroupBottom">
-            <button>10$</button>
-            <button>20$</button>
-            <button>50$</button>
-            <button>80$</button>
-            <button>100$</button>
-            <button onclick="allIn()">ALL IN!!!</button>
+            <button id="bet1" onclick="bet()">10 $</button>
+            <button id="bet2">20 $</button>
+            <button id="bet3">50 $</button>
+            <button id="bet4">80 $</button>
+            <button id="bet5">100 $</button>
+            <button id="allIn" onclick="allIn()">ALL IN!!!</button>
         </div>
         </div>
-
-
 
         <!-- Items for Bot 1 -->
         <a class="status" id="nameBot1">Bot - 1</a>
