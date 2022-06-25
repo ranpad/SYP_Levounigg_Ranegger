@@ -1,19 +1,23 @@
-var myPix = ["img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
-    "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
-    "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
-    "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
-    "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
-    "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
-    "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
-    "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
-    "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
-    "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
+
+
+     myPix = [
+
+            "img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
+            "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
+            "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
+            "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
+            "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
+            "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
+            "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
+            "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
+            "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
+            "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
     "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
     "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
     "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
-var refill=[];
+ refill=[];
 refill=myPix;
-var checks=["1","1","1","1",
+ checks=["1","1","1","1",
     "2","2","2","2",
     "3","3","3","3",
     "4","4","4","4",
@@ -27,10 +31,14 @@ var checks=["1","1","1","1",
     "12","12","12","12",
     "13","13","13","13"];
 
-var inhalt=[];
-var flush=[];
-function showcard() {
 
+ var inhalt=[];
+ var flush=[];
+ inhalt2=[];
+ flush2=[];
+function showcard() {
+    flush2=[];
+    inhalt2=[];
     if(myPix.length<=6){
         console.log(myPix.length);
         myPix=refill;
@@ -56,6 +64,8 @@ function showcard() {
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum4 = Math.floor(Math.random() * myPix.length);
@@ -63,6 +73,8 @@ function showcard() {
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum = Math.floor(Math.random() * myPix.length);
@@ -71,6 +83,8 @@ function showcard() {
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
     console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum = Math.floor(Math.random() * myPix.length);
@@ -79,6 +93,8 @@ function showcard() {
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
     console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum = Math.floor(Math.random() * myPix.length);
@@ -87,6 +103,8 @@ function showcard() {
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
     console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
     checks.splice(randomNum,1);
 
     document.getElementById("theeOfaKind").style.background="transparent";
@@ -99,7 +117,7 @@ function showcard() {
     if(fourOfaKind()==true){
         document.getElementById("fourOfaKind").style.background="rgb(255, 0, 0)";
     }
-    else if(flush1()==true){
+    else if(flushfunc()==true){
         document.getElementById("flush").style.background="rgb(255, 0, 0)";
     }
     else if(straight()==true){
@@ -129,6 +147,9 @@ function showcard() {
     }
     flush=[];
     inhalt=[];
+
+    Bot1();
+
     //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
 
 }
@@ -209,7 +230,7 @@ function straightFlush(){
     return false;
 
 }
-function flush1(){
+function flushfunc(){
     flush.sort((a, b) => a - b);
     console.log(flush);
     let c=0;
@@ -359,8 +380,5 @@ function check(check,check2,check3,check4,check5){
     myPix.splice(check2,1);
 
     exports.myPix2=myPix;
-}
-
-function chooseCard(){
 
 }
