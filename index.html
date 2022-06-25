@@ -8,7 +8,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Poker Texas Hold'em</title>
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/main.js"></script>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +15,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,11 +29,13 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/Bot1.js"></script>
-        <script src="js/Bot2.js"></script>
-        <script src="js/Bot3.js"></script>
-        <script src="js/poker.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/Bot1.js"></script>
+        <script type="text/javascript" src="js/Bot2.js"></script>
+        <script type="text/javascript" src="js/Bot3.js"></script>
+        <script type="text/javascript" src="js/poker.js"></script>
+
         <a class="status" id="totalPot">Total Pot: 0 $</a>
 
         <table id="table">
@@ -129,11 +130,11 @@
         </div>
 
         <div class="buttonGroupBottom">
-            <button id="bet1" onclick="getBet()">10 $</button>
-            <button id="bet2" onclick="getBet()">20 $</button>
-            <button id="bet3" onclick="getBet()">50 $</button>
-            <button id="bet4" onclick="getBet()">80 $</button>
-            <button id="bet5" onclick="getBet()">100 $</button>
+            <button id="bet1" onclick="getBet(this, 'bet1')">10 $</button>
+            <button id="bet2" onclick="getBet(this, 'bet2')">20 $</button>
+            <button id="bet3" onclick="getBet(this, 'bet3')">50 $</button>
+            <button id="bet4" onclick="getBet(this, 'bet4')">80 $</button>
+            <button id="bet5" onclick="getBet(this, 'bet5')">100 $</button>
             <button id="allIn" onclick="allIn()">ALL IN!!!</button>
         </div>
         </div>

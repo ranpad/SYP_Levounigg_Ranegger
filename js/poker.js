@@ -1,3 +1,5 @@
+import {table123} from "js/main";
+
 var totalPot = 0;
 var currentTotalBet = 0;
 var currentBet = 0;
@@ -8,10 +10,12 @@ var balanceBot3 = 500;
 var round = 0;
 var isFold = false;
 
-
 function main(){
     round++;
     updateBetButtons();
+    if (true){
+        table123();
+    }
 }
 
 function allIn(){
@@ -22,7 +26,16 @@ function allIn(){
 }
 
 function bet(){
-
+    balanceBot1-=currentTotalBet;
+    balanceBot2-=currentTotalBet;
+    balanceBot3-=currentTotalBet;
+    totalPot += currentTotalBet * 3;
+    document.getElementById("statusBot1").textContent=balanceBot1 + "$ - " + currentTotalBet + "$";
+    document.getElementById("statusBot2").textContent=balanceBot1 + "$ - " + currentTotalBet + "$";
+    document.getElementById("statusBot3").textContent=balanceBot1 + "$ - " + currentTotalBet + "$";
+    document.getElementById("totalPot").textContent="Total Pot: " + totalPot + " $";
+    enableButtons();
+    return true;
 }
 
 function fold(){
@@ -42,21 +55,52 @@ function updateBetButtons(){
     document.getElementById("bet5").textContent= currentTotalBet + 100 + " $";
 }
 
-function getBet(){
+function getBet(element, id){
     document.getElementById("bet").onclick = function (){balancePlayer -= currentTotalBet; totalPot += currentTotalBet;}
 
-    if (document.getElementById("bet1").onclick){
-        currentBet = document.getElementById("bet1").innerHTML.substring(0, 3);
+    if (id === 'bet1'){
+        currentBet = document.getElementById(id).innerHTML.substring(0, 3);
         currentBet = parseInt(currentBet);
-        totalPot += currentBet; balancePlayer-=currentBet;
+        totalPot += currentBet;
+        balancePlayer-=currentBet;
         updateBalanceAndPot(totalPot, balancePlayer);
-
-        console.log(currentBet);
-        console.log(totalPot);
-        console.log(balancePlayer);
     }
 
-    console.log(document.getElementById("bet1").onclick);
+    if (id === 'bet2'){
+        currentBet = document.getElementById(id).innerHTML.substring(0, 3);
+        currentBet = parseInt(currentBet);
+        totalPot += currentBet;
+        balancePlayer-=currentBet;
+        updateBalanceAndPot(totalPot, balancePlayer);
+    }
+
+    if (id === 'bet3'){
+        currentBet = document.getElementById(id).innerHTML.substring(0, 3);
+        currentBet = parseInt(currentBet);
+        totalPot += currentBet;
+        balancePlayer-=currentBet;
+        updateBalanceAndPot(totalPot, balancePlayer);
+    }
+
+    if (id === 'bet4'){
+        currentBet = document.getElementById(id).innerHTML.substring(0, 3);
+        currentBet = parseInt(currentBet);
+        totalPot += currentBet;
+        balancePlayer-=currentBet;
+        updateBalanceAndPot(totalPot, balancePlayer);
+    }
+
+    if (id === 'bet5'){
+        currentBet = document.getElementById(id).innerHTML.substring(0, 3);
+        currentBet = parseInt(currentBet);
+        totalPot += currentBet;
+        balancePlayer-=currentBet;
+        updateBalanceAndPot(totalPot, balancePlayer);
+    }
+    currentTotalBet = currentBet;
+    alert(currentTotalBet);
+    disableButtons();
+    bet();
 }
 
 

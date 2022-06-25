@@ -36,15 +36,19 @@ refill=myPix;
  var flush=[];
  inhalt2=[];
  flush2=[];
+
 function showcard() {
     flush2=[];
     inhalt2=[];
+
     if(myPix.length<=6){
         console.log(myPix.length);
         myPix=refill;
     }
+
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
+
     var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card").src = myPix[randomNum];
     myPix.splice(randomNum,1);
@@ -59,53 +63,59 @@ function showcard() {
     flush.push(randomNum);
     checks.splice(randomNum,1);
 
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard1").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    inhalt2.push(checks[randomNum]);
-    flush2.push(randomNum);
-    checks.splice(randomNum,1);
+    function table123(){
+        randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("tableCard1").src = myPix[randomNum];
+        myPix.splice(randomNum,1);
+        inhalt.push(checks[randomNum]);
+        flush.push(randomNum);
+        inhalt2.push(checks[randomNum]);
+        flush2.push(randomNum);
+        checks.splice(randomNum,1);
 
-    randomNum4 = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard2").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    inhalt2.push(checks[randomNum]);
-    flush2.push(randomNum);
-    checks.splice(randomNum,1);
+        randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("tableCard2").src = myPix[randomNum];
+        myPix.splice(randomNum,1);
+        inhalt.push(checks[randomNum]);
+        flush.push(randomNum);
+        inhalt2.push(checks[randomNum]);
+        flush2.push(randomNum);
+        checks.splice(randomNum,1);
 
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard3").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    inhalt2.push(checks[randomNum]);
-    flush2.push(randomNum);
-    checks.splice(randomNum,1);
+        randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("tableCard3").src = myPix[randomNum];
+        myPix.splice(randomNum,1);
+        inhalt.push(checks[randomNum]);
+        flush.push(randomNum);
+        console.log(inhalt);
+        inhalt2.push(checks[randomNum]);
+        flush2.push(randomNum);
+        checks.splice(randomNum,1);
+    }
 
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard4").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    inhalt2.push(checks[randomNum]);
-    flush2.push(randomNum);
-    checks.splice(randomNum,1);
+     function table4(){
+        randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("tableCard4").src = myPix[randomNum];
+        myPix.splice(randomNum,1);
+        inhalt.push(checks[randomNum]);
+        flush.push(randomNum);
+        console.log(inhalt);
+        inhalt2.push(checks[randomNum]);
+        flush2.push(randomNum);
+        checks.splice(randomNum,1);
+    }
 
-    randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("tableCard5").src = myPix[randomNum];
-    myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
-    console.log(inhalt);
-    inhalt2.push(checks[randomNum]);
-    flush2.push(randomNum);
-    checks.splice(randomNum,1);
+    function table5(){
+        randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("tableCard5").src = myPix[randomNum];
+        myPix.splice(randomNum,1);
+        inhalt.push(checks[randomNum]);
+        flush.push(randomNum);
+        console.log(inhalt);
+        inhalt2.push(checks[randomNum]);
+        flush2.push(randomNum);
+        checks.splice(randomNum,1);
+    }
 
     document.getElementById("theeOfaKind").style.background="transparent";
     document.getElementById("pair").style.background="transparent";
@@ -123,8 +133,6 @@ function showcard() {
     else if(straight()==true){
         document.getElementById("straight").style.background="rgb(255, 0, 0)";
     }
-
-
 
     let abfrage=threeOfaKind();
     let pairC=pair();
@@ -151,8 +159,8 @@ function showcard() {
     Bot1();
 
     //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
-
 }
+
 function RoyalFlush(){
     flush.sort((a, b) => a - b);
     inhalt.sort((a, b) => a - b);
@@ -178,6 +186,7 @@ function RoyalFlush(){
     }
     return false
 }
+
 function fourOfaKind(){
     let i=0;
     let c=1;
@@ -202,6 +211,7 @@ function fourOfaKind(){
     }
     return false;
 }
+
 function straightFlush(){
     flush.sort((a, b) => a - b);
     console.log(flush);
@@ -230,6 +240,7 @@ function straightFlush(){
     return false;
 
 }
+
 function flushfunc(){
     flush.sort((a, b) => a - b);
     console.log(flush);
@@ -260,7 +271,6 @@ function flushfunc(){
         }
         c++;
         check=1;
-
     }
     return false;
 }
@@ -285,8 +295,6 @@ function straight(){
             c++;
         }
         i++;
-
-
     }
     return false;
 
@@ -380,5 +388,4 @@ function check(check,check2,check3,check4,check5){
     myPix.splice(check2,1);
 
     exports.myPix2=myPix;
-
 }
