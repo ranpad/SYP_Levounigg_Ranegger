@@ -152,6 +152,10 @@ button{
     height: 52%;
 }
 
+button:disabled{
+    background-color: grey;
+}
+
 #balance{
     font-size: 230%;
     line-height: 112%;
