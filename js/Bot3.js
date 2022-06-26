@@ -41,10 +41,10 @@ function abfrageBot3(){
     flushBot3.push.apply(flushBot3, flush2);
     inhaltBot3.push.apply(inhaltBot3, inhalt2);
     console.log(inhaltBot3);
-    if(RoyalFlush4==true){
+    if(RoyalFlush4()==true){
         console.log("royalFlush");
     }
-    if(fourOfaKind4==true){
+    if(fourOfaKind4()==true){
         console.log("four of a kind");
     }
     else if(straight4()==true){
@@ -73,28 +73,32 @@ function abfrageBot3(){
     }
 }
 function RoyalFlush4(){
-    flushBot3.sort((a, b) => a - b);
-    inhaltBot3.sort((a, b) => a - b);
+    flushBot1.sort((a, b) => a - b);
+    inhaltBot1.sort((a, b) => a - b);
     let i=0;
     let c=0;
     let check=0;
     let check2=0;
     let check3=1;
-    while(i<=inhaltBot3.length){
+    while(i<=inhaltBot1.length){
         c=i;
-        if(inhaltBot3[i]==9){
-            check=flushBot3[i];
-            while(c<=flushBot3.length){
-                check2=flushBot3[c+i];
+        if(inhaltBot1[i]==9){
+            check=flushBot1[i];
+            while(c<=flushBot1.length){
+                check2=flushBot1[c+i];
                 if(check==check2+4){
                     check3++;
                     if(check3==5){
                         return true;
                     }
                 }
+                c++;
+
             }
         }
+        i++;
     }
+
     return false
 }
 function fourOfaKind4(){
@@ -110,7 +114,6 @@ function fourOfaKind4(){
                     while(i<=4){
                         i++;
                     }
-                    (inhaltBot3);
                     return true;
                 }
             }
@@ -211,16 +214,16 @@ function threeOfaKind4(){
     let i=0;
     let c=1;
     let c2=1;
-    var safe=[];
+    var safe3=[];
     while(i<=inhaltBot3.length){
         while(c<=inhaltBot3.length){
             if(inhaltBot3[i]===inhaltBot3[c]){
                 c2++;
-                safe.push(c);
+                safe3.push(c);
                 if(c2==3){
                     i=1;
                     while(i<=3){
-                        inhaltBot3.splice(safe[i],1);
+                        inhaltBot3.splice(safe3[i],1);
                         i++;
                     }
                     return true;

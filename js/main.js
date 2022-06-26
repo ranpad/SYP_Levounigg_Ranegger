@@ -48,12 +48,16 @@ myPix = [
  flush2=[];
 
 function showcard() {
+    inhalt=[];
+    flush=[];
     flush2=[];
     inhalt2=[];
 
     myPix=refill;
 
-
+    for (var i of flusheBot1) {
+        flushBot1.push(i);
+    }
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
 
@@ -77,8 +81,9 @@ function showcard() {
 
 }
 function abfrage(){
+
     console.log(inhalt);
-    if(RoyalFlush==true){
+    if(RoyalFlush()==true){
         document.getElementById("royalFlush").style.background="rgb(255, 0, 0)";
     }
     if(fourOfaKind()==true){
@@ -103,7 +108,7 @@ function abfrage(){
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
 
     }
-    if(DoublePair() == true&&abfrage!=true){
+    if(DoublePair()==true&&abfrage!=true){
         document.getElementById("pair").style.background="transparent";
         document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
@@ -167,28 +172,32 @@ function table5(){
 }
 
 function RoyalFlush(){
-    flush.sort((a, b) => a - b);
-    inhalt.sort((a, b) => a - b);
+    flushBot1.sort((a, b) => a - b);
+    inhaltBot1.sort((a, b) => a - b);
     let i=0;
     let c=0;
     let check=0;
     let check2=0;
     let check3=1;
-    while(i<=inhalt.length){
+    while(i<=inhaltBot1.length){
         c=i;
-        if(inhalt[i]==9){
-            check=flush[i];
-            while(c<=flush.length){
-                check2=flush[c+i];
+        if(inhaltBot1[i]==9){
+            check=flushBot1[i];
+            while(c<=flushBot1.length){
+                check2=flushBot1[c+i];
                 if(check==check2+4){
                     check3++;
                     if(check3==5){
                         return true;
                     }
                 }
+                c++;
+
             }
         }
+        i++;
     }
+
     return false
 }
 

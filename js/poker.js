@@ -21,6 +21,7 @@ function main(){
         table4();
     }
     if (round==4){
+        round=0;
         table5();
     }
 }

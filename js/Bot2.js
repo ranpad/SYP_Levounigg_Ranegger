@@ -47,10 +47,10 @@ function abfrageBot2() {
     inhaltBot2.push.apply(inhaltBot2, inhalt2);
     console.log(inhaltBot2);
 
-    if(RoyalFlush3==true){
+    if(RoyalFlush3()==true){
         console.log("royalFlush");
     }
-    if(fourOfaKind3==true){
+    if(fourOfaKind3()==true){
         console.log("four of a kind");
     }
     else if(straight3()==true){
@@ -84,28 +84,32 @@ function abfrageBot2() {
 
 
 function RoyalFlush3(){
-    flushBot2.sort((a, b) => a - b);
-    inhaltBot2.sort((a, b) => a - b);
+    flushBot1.sort((a, b) => a - b);
+    inhaltBot1.sort((a, b) => a - b);
     let i=0;
     let c=0;
     let check=0;
     let check2=0;
     let check3=1;
-    while(i<=inhaltBot2.length){
+    while(i<=inhaltBot1.length){
         c=i;
-        if(inhaltBot2[i]==9){
-            check=flushBot2[i];
-            while(c<=flushBot2.length){
-                check2=flushBot2[c+i];
+        if(inhaltBot1[i]==9){
+            check=flushBot1[i];
+            while(c<=flushBot1.length){
+                check2=flushBot1[c+i];
                 if(check==check2+4){
                     check3++;
                     if(check3==5){
                         return true;
                     }
                 }
+                c++;
+
             }
         }
+        i++;
     }
+
     return false
 }
 function fourOfaKind3(){
@@ -221,16 +225,16 @@ function threeOfaKind3(){
     let i=0;
     let c=1;
     let c2=1;
-    var safe=[];
+    var safe2=[];
     while(i<=inhaltBot2.length){
         while(c<=inhaltBot2.length){
             if(inhaltBot2[i]===inhaltBot2[c]){
                 c2++;
-                safe.push(c);
+                safe2.push(c);
                 if(c2==3){
                     i=1;
                     while(i<=3){
-                        inhaltBot2.splice(safe[i],1);
+                        inhaltBot2.splice(safe2[i],1);
                         i++;
                     }
                     return true;

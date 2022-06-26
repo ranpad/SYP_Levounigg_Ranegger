@@ -41,11 +41,11 @@ function abfrageBot1(){
     inhaltBot1.push.apply(inhaltBot1, inhalt2);
     console.log(inhaltBot1);
 
-    if(RoyalFlush2==true){
+    if(RoyalFlush2()==true){
         console.log("royalFlush");
         move="RoyalFlush";
     }
-    if(fourOfaKind2==true){
+    if(fourOfaKind2()==true){
         console.log("four of a kind");
         move="fourOfaKind";
     }
@@ -194,9 +194,13 @@ function RoyalFlush2(){
                         return true;
                     }
                 }
+                c++;
+
             }
         }
+        i++;
     }
+
     return false
 }
 function fourOfaKind2(){
@@ -309,20 +313,21 @@ function straight2(){
 
 }
 function threeOfaKind2(){
+
     let i=0;
     let c=1;
     let c2=1;
-    var safe=[];
+    var safe1=[];
     while(i<=inhaltBot1.length){
         while(c<=inhaltBot1.length){
             if(inhaltBot1[i]===inhaltBot1[c]){
                 c2++;
-                safe.push(c);
+                safe1.push(c);
                 (c2,inhaltBot1);
                 if(c2==3){
                     i=1;
                     while(i<=3){
-                        inhaltBot1.splice(safe[i],1);
+                        inhaltBot1.splice(safe1[i],1);
                         i++;
                     }
                     (inhaltBot1);
