@@ -1,7 +1,4 @@
-
-
-     myPix = [
-
+myPix = [
             "img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
             "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
             "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
@@ -12,12 +9,25 @@
             "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
             "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
             "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
-    "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
-    "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
-    "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
- refill=[];
-refill=myPix;
- checks=["1","1","1","1",
+            "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
+            "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
+            "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
+ var refill=[
+     "img/cards/2_of_clubs.png",        "img/cards/2_of_diamonds.png",     "img/cards/2_of_hearts.png",     "img/cards/2_of_spades.png",
+     "img/cards/3_of_clubs.png",        "img/cards/3_of_diamonds.png",     "img/cards/3_of_spades.png",     "img/cards/3_of_spades.png",
+     "img/cards/4_of_clubs.png",        "img/cards/4_of_diamonds.png",     "img/cards/4_of_hearts.png",     "img/cards/4_of_spades.png",
+     "img/cards/5_of_clubs.png",        "img/cards/5_of_diamonds.png",     "img/cards/5_of_hearts.png",     "img/cards/5_of_spades.png",
+     "img/cards/6_of_clubs.png",        "img/cards/6_of_diamonds.png",     "img/cards/6_of_hearts.png",     "img/cards/6_of_spades.png",
+     "img/cards/7_of_clubs.png",        "img/cards/7_of_diamonds.png",     "img/cards/7_of_hearts.png",     "img/cards/7_of_spades.png",
+     "img/cards/8_of_clubs.png",        "img/cards/8_of_diamonds.png",     "img/cards/8_of_hearts.png",     "img/cards/8_of_spades.png",
+     "img/cards/9_of_clubs.png",        "img/cards/9_of_diamonds.png",     "img/cards/9_of_hearts.png",     "img/cards/9_of_spades.png",
+     "img/cards/10_of_clubs.png",       "img/cards/10_of_diamonds.png",    "img/cards/10_of_hearts.png",    "img/cards/10_of_spades.png",
+     "img/cards/ace_of_clubs.png",      "img/cards/ace_of_diamonds.png",   "img/cards/ace_of_hearts.png",   "img/cards/ace_of_spades.png",
+     "img/cards/jack_of_clubs.png",     "img/cards/jack_of_diamonds.png",  "img/cards/jack_of_hearts.png",  "img/cards/jack_of_spades.png",
+     "img/cards/king_of_clubs.png",     "img/cards/king_of_diamonds.png",  "img/cards/king_of_hearts.png",  "img/cards/king_of_spades.png",
+     "img/cards/queen_of_clubs.png",    "img/cards/queen_of_diamonds.png", "img/cards/queen_of_hearts.png", "img/cards/queen_of_spades.png"];
+ checks=[
+     "1","1","1","1",
     "2","2","2","2",
     "3","3","3","3",
     "4","4","4","4",
@@ -41,10 +51,8 @@ function showcard() {
     flush2=[];
     inhalt2=[];
 
-    if(myPix.length<=6){
-        console.log(myPix.length);
-        myPix=refill;
-    }
+    myPix=refill;
+
 
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
@@ -63,60 +71,12 @@ function showcard() {
     flush.push(randomNum);
     checks.splice(randomNum,1);
 
-    function table123(){
-        randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("tableCard1").src = myPix[randomNum];
-        myPix.splice(randomNum,1);
-        inhalt.push(checks[randomNum]);
-        flush.push(randomNum);
-        inhalt2.push(checks[randomNum]);
-        flush2.push(randomNum);
-        checks.splice(randomNum,1);
+    abfrage();
+    cardsBot1();
 
-        randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("tableCard2").src = myPix[randomNum];
-        myPix.splice(randomNum,1);
-        inhalt.push(checks[randomNum]);
-        flush.push(randomNum);
-        inhalt2.push(checks[randomNum]);
-        flush2.push(randomNum);
-        checks.splice(randomNum,1);
 
-        randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("tableCard3").src = myPix[randomNum];
-        myPix.splice(randomNum,1);
-        inhalt.push(checks[randomNum]);
-        flush.push(randomNum);
-        console.log(inhalt);
-        inhalt2.push(checks[randomNum]);
-        flush2.push(randomNum);
-        checks.splice(randomNum,1);
-    }
-
-     function table4(){
-        randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("tableCard4").src = myPix[randomNum];
-        myPix.splice(randomNum,1);
-        inhalt.push(checks[randomNum]);
-        flush.push(randomNum);
-        console.log(inhalt);
-        inhalt2.push(checks[randomNum]);
-        flush2.push(randomNum);
-        checks.splice(randomNum,1);
-    }
-
-    function table5(){
-        randomNum = Math.floor(Math.random() * myPix.length);
-        document.getElementById("tableCard5").src = myPix[randomNum];
-        myPix.splice(randomNum,1);
-        inhalt.push(checks[randomNum]);
-        flush.push(randomNum);
-        console.log(inhalt);
-        inhalt2.push(checks[randomNum]);
-        flush2.push(randomNum);
-        checks.splice(randomNum,1);
-    }
-
+}
+function abfrage(){
     document.getElementById("theeOfaKind").style.background="transparent";
     document.getElementById("pair").style.background="transparent";
     document.getElementById("twoPair").style.background="transparent";
@@ -150,15 +110,73 @@ function showcard() {
 
     }
     if(DoublePair() == true&&abfrage!=true){
+        document.getElementById("pair").style.background="transparent";
         document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
     }
-    flush=[];
-    inhalt=[];
 
-    Bot1();
+}
+function table123(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard1").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
 
-    //check(randomNum,randomNum2,randomNum3,randomNum4,randomNum5);
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard2").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard3").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+    console.log(inhalt);
+    abfrage()
+    abfrageBot1();
+}
+
+function table4(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard4").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+    console.log(inhalt);
+    abfrage()
+    abfrageBot1();
+}
+
+function table5(){
+    randomNum = Math.floor(Math.random() * myPix.length);
+    document.getElementById("tableCard5").src = myPix[randomNum];
+    myPix.splice(randomNum,1);
+    inhalt.push(checks[randomNum]);
+    flush.push(randomNum);
+    console.log(inhalt);
+    inhalt2.push(checks[randomNum]);
+    flush2.push(randomNum);
+    checks.splice(randomNum,1);
+    console.log(inhalt);
+    abfrage()
+    abfrageBot1();
 }
 
 function RoyalFlush(){

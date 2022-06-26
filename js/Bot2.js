@@ -1,21 +1,40 @@
 var flush=[];
 var inhalt=[];
-function Bot2(){
+var inhalte=[];
+var flushe=[];
+var move;
+function cardsBot2(){
+    inhalte=[];
+    flushe=[];
+    flush=[];
+    inhalt=[]
     randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card1Bot2").src = myPix[randomNum];
     myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
+    inhalte.push(checks[randomNum]);
+    flushe.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2Bot2").src = myPix[randomNum];
     myPix.splice(randomNum,1);
-    inhalt.push(checks[randomNum]);
-    flush.push(randomNum);
+    inhalte.push(checks[randomNum]);
+    flushe.push(randomNum);
     checks.splice(randomNum,1);
-    console.log(flush);
+    console.log(flush,inhalt);
+    abfrageBot2();
 
+
+}
+function abfrageBot2() {
+    flush=[];
+    inhalt=[];
+    for (var i of flushe) {
+        flush.push(i);
+    }
+    for (var i of inhalte) {
+        inhalt.push(i);
+    }
 
     flush.push.apply(flush, flush2);
     inhalt.push.apply(inhalt, inhalt2);
@@ -37,17 +56,17 @@ function Bot2(){
 
 
     let abfrage=threeOfaKind3();
-    let pairC1=pair3();
+    let pairC=pair3();
     if(abfrage==true && pairC==true){
         console.log("Full house");
     }
-    if(straightFlush3()==true){
+    else if(straightFlush3()==true){
         console.log("straight Flush");
     }
-    if(abfrage==true){
+    else if(abfrage==true){
         console.log("threeofakind");
     }
-    if(pairC1==true&&abfrage!=true){
+    if(pairC==true&&abfrage!=true){
         console.log("pair");
 
     }
@@ -55,10 +74,10 @@ function Bot2(){
         console.log("two pair");
 
     }
-    flush=[];
-    inhalt=[];
-    Bot3();
+    cardsBot3()
 }
+
+
 function RoyalFlush3(){
     flush.sort((a, b) => a - b);
     inhalt.sort((a, b) => a - b);

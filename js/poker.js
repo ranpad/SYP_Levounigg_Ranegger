@@ -1,4 +1,4 @@
-import {table123} from "js/main";
+
 
 var totalPot = 0;
 var currentTotalBet = 0;
@@ -13,8 +13,17 @@ var isFold = false;
 function main(){
     round++;
     updateBetButtons();
-    if (true){
+    if(round==1){
+        showcard();
+    }
+    if (round==2){
         table123();
+    }
+    if (round==3){
+        table4();
+    }
+    if (round==4){
+        table5();
     }
 }
 
