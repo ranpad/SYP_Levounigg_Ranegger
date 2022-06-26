@@ -19,6 +19,7 @@ function cardsBot1(){
     checks.splice(randomNum,1);
     console.log(flush);
     abfrageBot1();
+    cardsBot2();
 
 }
 function abfrageBot1(){
@@ -78,7 +79,7 @@ function abfrageBot1(){
         move="doublepair";
 
     }
-    cardsBot2();
+    abfrageBot2();
 
 }
 function moves(){

@@ -23,6 +23,7 @@ function cardsBot2(){
     checks.splice(randomNum,1);
     console.log(flush,inhalt);
     abfrageBot2();
+    cardsBot3()
 
 
 }
@@ -74,7 +75,8 @@ function abfrageBot2() {
         console.log("two pair");
 
     }
-    cardsBot3()
+    abfrageBot3();
+
 }
 
 

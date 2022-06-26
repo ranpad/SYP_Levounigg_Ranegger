@@ -1,5 +1,3 @@
-
-
 var totalPot = 0;
 var currentTotalBet = 0;
 var currentBet = 0;
