@@ -3,7 +3,10 @@ var inhaltBot3=[];
 var inhalteBot3=[];
 var flusheBot3=[];
 let cardscounter3=0;
-var move;
+var move = "nichts";
+var bot3 = 'bot3';
+var foldedBot3 = false;
+
 function cardsBot3(){
     inhalte=[];
     flushe=[];
@@ -72,6 +75,139 @@ function abfrageBot3(){
 
     }
 }
+
+function moves3(){
+
+    if(foldedBot3){
+        return;
+    }
+
+    randomNum=Math.floor(Math.random() * 10);
+    if(move=="RoyalFlush"){
+        if(randomNum<=9){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="straightFlush"){
+        if(randomNum<=8){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="fourOfaKind"){
+        if(randomNum<=7){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="Fullhouse"){
+        if(randomNum<=6){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="flush"){
+        if(randomNum<=5){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="straight"){
+        if(randomNum<=4){
+            allInBot(bot3);
+        }
+        else{
+            check(bot3);
+        }
+    }
+
+    if(move=="threeofakind"){
+        if(randomNum<=3){
+            allInBot(bot3);
+        }
+        else{
+            if(randomNum<=9){
+                check(bot3);
+            }
+            else{
+                foldedBot3 = true;
+                fold(bot3);
+                return;
+            }
+        }
+    }
+
+    if(move=="twopairs"){
+        if(randomNum<=1){
+            allInBot(bot3);
+        }
+        else{
+            if(randomNum<=8){
+                check(bot3);
+            }
+            else{
+                foldedBot3 = true;
+                fold(bot3);
+                return;
+            }
+        }
+    }
+
+    if(move=="pair"){
+        if(randomNum<=1){
+            allInBot(bot3);
+        }
+        else{
+            if(randomNum<=8){
+                check(bot3);
+            }
+            else{
+                foldedBot3 = true;
+                fold(bot3);
+                return;
+            }
+        }
+    }
+
+    if(move=="nichts"){
+        if (randomNum <= 8){
+            check(bot3);
+        }else{
+            foldedBot3 = true;
+            fold(bot3);
+            return;
+        }
+    }
+}
+
+function foldOrAllIn3(){
+    randomNum=Math.floor(Math.random() * 10);
+    if (randomNum <= 8){
+        foldedBot3 = true;
+        fold(bot3);
+        return;
+    }else{
+        allInBot(bot3);
+    }
+}
+
+
 function RoyalFlush4(){
     flushBot1.sort((a, b) => a - b);
     inhaltBot1.sort((a, b) => a - b);

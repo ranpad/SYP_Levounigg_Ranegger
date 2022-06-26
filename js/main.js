@@ -76,10 +76,9 @@ function showcard() {
     myPix.splice(randomNum,1);
     checks.splice(randomNum,1);
     abfrage();
-
-
-
 }
+
+
 function abfrage(){
 
     console.log(inhalt);
