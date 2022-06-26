@@ -8,20 +8,20 @@ function cardsBot3(){
     flushe=[];
     flush=[];
     inhalt=[]
-    randomNum = Math.floor(Math.random() * myPix.length);
+    var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card1Bot3").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalte.push(checks[randomNum]);
     flushe.push(randomNum);
     checks.splice(randomNum,1);
 
-    randomNum = Math.floor(Math.random() * myPix.length);
+    var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2Bot3").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalte.push(checks[randomNum]);
     flushe.push(randomNum);
     checks.splice(randomNum,1);
-    console.log(flush);
+    (flush);
     abfrageBot3();
 }
 function abfrageBot3(){
@@ -36,15 +36,12 @@ function abfrageBot3(){
 
     flush.push.apply(flush, flush2);
     inhalt.push.apply(inhalt, inhalt2);
-    console.log(flush);
+    console.log(inhalt);
     if(RoyalFlush4==true){
         console.log("royalFlush");
     }
     if(fourOfaKind4==true){
         console.log("four of a kind");
-    }
-    else if(flush14()==true){
-        console.log("Flush");
     }
     else if(straight4()==true){
         console.log("straight");
@@ -104,13 +101,12 @@ function fourOfaKind4(){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
-                console.log(c2,inhalt);
                 if(c2==4){
                     i=1;
                     while(i<=4){
                         i++;
                     }
-                    console.log(inhalt);
+                    (inhalt);
                     return true;
                 }
             }
@@ -122,7 +118,6 @@ function fourOfaKind4(){
 }
 function straightFlush4(){
     flush.sort((a, b) => a - b);
-    console.log(flush);
     let  check1;
     let check2;
     let i=0;
@@ -150,7 +145,6 @@ function straightFlush4(){
 }
 function flush14(){
     flush.sort((a, b) => a - b);
-    console.log(flush);
     let c=0;
     let mod;
     let i;
@@ -169,7 +163,7 @@ function flush14(){
         while(i<=flush.length){
             if(flush[i+1]%mod==0&&flush[i+1]!=flush[i]){
                 check++;
-                console.log(check,mod)
+                (check,mod)
                 if(check==5){
                     return true;
                 }
@@ -219,14 +213,12 @@ function threeOfaKind4(){
             if(inhalt[i]===inhalt[c]){
                 c2++;
                 safe.push(c);
-                console.log(c2,inhalt);
                 if(c2==3){
                     i=1;
                     while(i<=3){
                         inhalt.splice(safe[i],1);
                         i++;
                     }
-                    console.log(inhalt);
                     return true;
                 }
             }

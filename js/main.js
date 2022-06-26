@@ -77,18 +77,12 @@ function showcard() {
 
 }
 function abfrage(){
-    document.getElementById("theeOfaKind").style.background="transparent";
-    document.getElementById("pair").style.background="transparent";
-    document.getElementById("twoPair").style.background="transparent";
-    document.getElementById("flush").style.background="transparent";
+    console.log(inhalt);
     if(RoyalFlush==true){
         document.getElementById("royalFlush").style.background="rgb(255, 0, 0)";
     }
     if(fourOfaKind()==true){
         document.getElementById("fourOfaKind").style.background="rgb(255, 0, 0)";
-    }
-    else if(flushfunc()==true){
-        document.getElementById("flush").style.background="rgb(255, 0, 0)";
     }
     else if(straight()==true){
         document.getElementById("straight").style.background="rgb(255, 0, 0)";
@@ -140,11 +134,9 @@ function table123(){
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
-    console.log(inhalt);
     inhalt2.push(checks[randomNum]);
     flush2.push(randomNum);
     checks.splice(randomNum,1);
-    console.log(inhalt);
     abfrage()
     abfrageBot1();
 }
@@ -155,11 +147,9 @@ function table4(){
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
-    console.log(inhalt);
     inhalt2.push(checks[randomNum]);
     flush2.push(randomNum);
     checks.splice(randomNum,1);
-    console.log(inhalt);
     abfrage()
     abfrageBot1();
 }
@@ -170,11 +160,9 @@ function table5(){
     myPix.splice(randomNum,1);
     inhalt.push(checks[randomNum]);
     flush.push(randomNum);
-    console.log(inhalt);
     inhalt2.push(checks[randomNum]);
     flush2.push(randomNum);
     checks.splice(randomNum,1);
-    console.log(inhalt);
     abfrage()
     abfrageBot1();
 }
@@ -213,13 +201,11 @@ function fourOfaKind(){
         while(c<=inhalt.length){
             if(inhalt[i]===inhalt[c]){
                 c2++;
-                console.log(c2,inhalt);
                 if(c2==4){
                     i=1;
                     while(i<=4){
                         i++;
                     }
-                    console.log(inhalt);
                     return true;
                 }
             }
@@ -232,7 +218,6 @@ function fourOfaKind(){
 
 function straightFlush(){
     flush.sort((a, b) => a - b);
-    console.log(flush);
     let  check1;
     let check2;
     let i=0;
@@ -261,7 +246,6 @@ function straightFlush(){
 
 function flushfunc(){
     flush.sort((a, b) => a - b);
-    console.log(flush);
     let c=0;
     let mod;
     let i;
@@ -280,7 +264,6 @@ function flushfunc(){
         while(i<=flush.length){
             if(flush[i+1]%mod==0&&flush[i+1]!=flush[i]){
                 check++;
-                console.log(check,mod)
                 if(check==5){
                     return true;
                 }
@@ -327,14 +310,12 @@ function threeOfaKind(){
             if(inhalt[i]===inhalt[c]){
                 c2++;
                 safe.push(c);
-                console.log(c2,inhalt);
                 if(c2==3){
                     i=1;
                     while(i<=3){
                         inhalt.splice(safe[i],1);
                         i++;
                     }
-                    console.log(inhalt);
                     return true;
                 }
             }
@@ -367,43 +348,4 @@ function pair(){
         valuesSoFar[value] = true;
     }
     return false;
-}
-function check(check,check2,check3,check4,check5){
-
-    console.log(check,check2);
-
-
-    const s=[0,1,2,3,4,5,6,7,8,9];
-    let c=0;
-
-    for (const inputValues of checks.from(checkEmailValues)) {
-
-        if(inputValues == value) {
-            console.log("matches");
-        } else {
-            console.log("doesnt match");
-        }
-    }
-    while(c<=s.length){
-        if(myPix[check].includes(s[c])==myPix[check2].includes(s[c])&&check<=40&&check2<=40&&myPix[check].includes(s[c])!=false&&myPix[check2].includes(s[c])!=false){
-            document.getElementById("pair").style.background="rgb(255, 0, 0)";
-        }
-        c++;
-    }
-    if(myPix[check].includes('ace')==myPix[check2].includes('ace')&&myPix[check].includes('ace')!=false&&myPix[check2].includes('ace')!=false){
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
-    }
-    if(myPix[check].includes('jack')==myPix[check2].includes('jack')&&myPix[check].includes('jack')!=false&&myPix[check2].includes('jack')!=false){
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
-    }
-    if(myPix[check].includes('king')==myPix[check2].includes('king')&&myPix[check].includes('king')!=false&&myPix[check2].includes('king')!=false){
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
-    }
-    if(myPix[check].includes('queen')==myPix[check2].includes('queen')&&myPix[check].includes('queen')!=false&&myPix[check2].includes('queen')!=false){
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
-    }
-    myPix.splice(check,1);
-    myPix.splice(check2,1);
-
-    exports.myPix2=myPix;
 }
