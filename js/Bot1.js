@@ -1,39 +1,45 @@
-var flush=[];
-var inhalt=[];
-var inhalte=[];
-var flushe=[];
+var flushBot1=[];
+var inhaltBot1=[];
+var inhalteBot1=[];
+var flusheBot1=[];
 var move;
+let cardscounter1=0;
+let cardscounter2=0;
 function cardsBot1(){
     var randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card1Bot1").src = myPix[randomNum];
     myPix.splice(randomNum,1);
-    inhalte.push(checks[randomNum]);
-    flushe.push(randomNum);
+    inhalteBot1.push(checks[randomNum]);
+    flusheBot1.push(randomNum);
     checks.splice(randomNum,1);
 
-    var randomNum = Math.floor(Math.random() * myPix.length);
+    randomNum = Math.floor(Math.random() * myPix.length);
     document.getElementById("card2Bot1").src = myPix[randomNum];
     myPix.splice(randomNum,1);
-    inhalte.push(checks[randomNum]);
-    flushe.push(randomNum);
+    inhalteBot1.push(checks[randomNum]);
+    flusheBot1.push(randomNum);
     checks.splice(randomNum,1);
     abfrageBot1();
-    cardsBot2();
 
 }
 function abfrageBot1(){
-    flush=[];
-    inhalt=[];
-    for (var i of flushe) {
-        flush.push(i);
+    if(cardscounter1===0){
+        cardscounter1++;
+        cardsBot1();
+
     }
-    for (var i of inhalte) {
-        inhalt.push(i);
+    flushBot1=[];
+    inhaltBot1=[];
+    for (var i of flusheBot1) {
+        flushBot1.push(i);
+    }
+    for (var i of inhalteBot1) {
+        inhaltBot1.push(i);
     }
 
-    flush.push.apply(flush, flush2);
-    inhalt.push.apply(inhalt, inhalt2);
-    console.log(inhalt);
+    flushBot1.push.apply(flushBot1, flush2);
+    inhaltBot1.push.apply(inhaltBot1, inhalt2);
+    console.log(inhaltBot1);
 
     if(RoyalFlush2==true){
         console.log("royalFlush");
@@ -74,7 +80,7 @@ function abfrageBot1(){
         move="doublepair";
 
     }
-    abfrageBot2();
+        abfrageBot2()
 
 }
 function moves(){
@@ -169,19 +175,19 @@ function moves(){
 
 }
 function RoyalFlush2(){
-    flush.sort((a, b) => a - b);
-    inhalt.sort((a, b) => a - b);
+    flushBot1.sort((a, b) => a - b);
+    inhaltBot1.sort((a, b) => a - b);
     let i=0;
     let c=0;
     let check=0;
     let check2=0;
     let check3=1;
-    while(i<=inhalt.length){
+    while(i<=inhaltBot1.length){
         c=i;
-        if(inhalt[i]==9){
-            check=flush[i];
-            while(c<=flush.length){
-                check2=flush[c+i];
+        if(inhaltBot1[i]==9){
+            check=flushBot1[i];
+            while(c<=flushBot1.length){
+                check2=flushBot1[c+i];
                 if(check==check2+4){
                     check3++;
                     if(check3==5){
@@ -197,9 +203,9 @@ function fourOfaKind2(){
     let i=0;
     let c=1;
     let c2=1;
-    while(i<=inhalt.length){
-        while(c<=inhalt.length){
-            if(inhalt[i]===inhalt[c]){
+    while(i<=inhaltBot1.length){
+        while(c<=inhaltBot1.length){
+            if(inhaltBot1[i]===inhaltBot1[c]){
                 c2++;
                 if(c2==4){
                     i=1;
@@ -216,17 +222,17 @@ function fourOfaKind2(){
     return false;
 }
 function straightFlush2(){
-    flush.sort((a, b) => a - b);
+    flushBot1.sort((a, b) => a - b);
     let  check1;
     let check2;
     let i=0;
     let c=0;
     let check3=0;
-    while(i<=flush.length){
+    while(i<=flushBot1.length){
         c=i;
-        check1=flush[i];
-        while(c<flush.length){
-            check2=flush[c+1];
+        check1=flushBot1[i];
+        while(c<flushBot1.length){
+            check2=flushBot1[c+1];
             if(check2==check1+4){
                 check3++;
                 if(check3==5){
@@ -242,25 +248,25 @@ function straightFlush2(){
     return false;
 
 }
-function flush12(){
-    flush.sort((a, b) => a - b);
+function flushBot112(){
+    flushBot1.sort((a, b) => a - b);
     let c=0;
     let mod;
     let i;
     let check=1;
-    while(c<=flush.length){
+    while(c<=flushBot1.length){
         i=c;
-        if(flush[c]%2==0){
+        if(flushBot1[c]%2==0){
             mod=2;
         }
-        else if(flush[c]%3==0){
+        else if(flushBot1[c]%3==0){
             mod=3;
         }
-        else if(flush[c]%4==0){
+        else if(flushBot1[c]%4==0){
             mod=4;
         }
-        while(i<=flush.length){
-            if(flush[i+1]%mod==0&&flush[i+1]!=flush[i]){
+        while(i<=flushBot1.length){
+            if(flushBot1[i+1]%mod==0&&flushBot1[i+1]!=flushBot1[i]){
                 check++;
                 (check,mod)
                 if(check==5){
@@ -276,17 +282,17 @@ function flush12(){
     return false;
 }
 function straight2(){
-    inhalt.sort((a, b) => a - b);
+    inhaltBot1.sort((a, b) => a - b);
     let  check1;
     let check2;
     let i=0;
     let c=0;
     let check3=1;
-    while(i<=inhalt.length){
+    while(i<=inhaltBot1.length){
         c=i;
-        check1=inhalt[i]
-        while(c<=inhalt.length){
-            check2=inhalt[c+1]
+        check1=inhaltBot1[i]
+        while(c<=inhaltBot1.length){
+            check2=inhaltBot1[c+1]
             if(check2==check1+1){
                 check3++;
                 if(check3==5){
@@ -307,19 +313,19 @@ function threeOfaKind2(){
     let c=1;
     let c2=1;
     var safe=[];
-    while(i<=inhalt.length){
-        while(c<=inhalt.length){
-            if(inhalt[i]===inhalt[c]){
+    while(i<=inhaltBot1.length){
+        while(c<=inhaltBot1.length){
+            if(inhaltBot1[i]===inhaltBot1[c]){
                 c2++;
                 safe.push(c);
-                (c2,inhalt);
+                (c2,inhaltBot1);
                 if(c2==3){
                     i=1;
                     while(i<=3){
-                        inhalt.splice(safe[i],1);
+                        inhaltBot1.splice(safe[i],1);
                         i++;
                     }
-                    (inhalt);
+                    (inhaltBot1);
                     return true;
                 }
             }
@@ -331,8 +337,8 @@ function threeOfaKind2(){
 }
 function DoublePair2(){
     var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
+    for (let i = 0; i < inhaltBot1.length; ++i) {
+        var value = inhaltBot1[i];
         if (value in valuesSoFar) {
             return true;
         }
@@ -342,10 +348,10 @@ function DoublePair2(){
 }
 function pair2(){
     var valuesSoFar = Object.create(null);
-    for (let i = 0; i < inhalt.length; ++i) {
-        var value = inhalt[i];
+    for (let i = 0; i < inhaltBot1.length; ++i) {
+        var value = inhaltBot1[i];
         if (value in valuesSoFar) {
-            inhalt.splice(i,1);
+            inhaltBot1.splice(i,1);
             DoublePair2();
             return true;
         }
