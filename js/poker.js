@@ -25,7 +25,6 @@ var isFold = false;
 function main(){
     round++;
     updateBetButtons();
-
     if (balanceBot1 === 0){
         return bot1Alive = false;
     }
@@ -37,43 +36,44 @@ function main(){
     }
 
     if (foldedBot1 && foldedBot2 && foldedBot3){
-        balancePlayer += totalPot;
+        alert("in if");
+        showTableCards();
+        balancePlayer = balancePlayer + totalPot;
         totalPot = 0;
+        updateBalanceAndPot();
         alert("Sie haben gewonnen!");
     }
 
-    if(balanceBot1==0&&balanceBot2==0&&balanceBot3==0){
+    if(balanceBot1===0&&balanceBot2===0&&balanceBot3===0){
+        alert("in if");
+        showTableCards();
         balancePlayer =+ totalPot;
         totalPot = 0;
         alert("SIE HABEN GEWONNEN!");
     }
-    if(balancePlayer==0){
-        alert("SIE HABEN LEIDER VERLOREN!");
-    }
 
-    if(round==1){
+    if(round===1){
         showcard();
     }
-    if (round==2){
+    if (round===2){
         table123();
     }
-    if (round==3){
+    if (round===3){
         table4();
     }
-    if (round==4){
+    if (round===4){
         table5();
+        whoWon();
     }
-    if (round==5){
+    if (round===5){
         disableButtons();
-
+        whoWon();
     }
 
     if (balancePlayer <= 0){
         //whoWon()
         return bot1Alive = true;
     }
-
-    return;
 }
 
 
@@ -133,11 +133,12 @@ function allInPlayer(){
     if (!bot3isAllIn){
         foldOrAllIn3();
     }
-    //who won
+
+    whoWon();
 }
 
 function allInBot(botId){
-    showTableCards();
+
 
     if (botId === 'bot1'){
         bot1isAllIn = true;
@@ -178,6 +179,7 @@ function allInBot(botId){
         foldOrAllIn1();
         foldOrAllIn2();
     }
+    showTableCards();
 }
 
 function getBet(element, id){
@@ -193,7 +195,6 @@ function getBet(element, id){
         alert("You can't bet more Money than you have!");
     }
 
-    alert("Total Bet: " + currentTotalBet + "Current Bet: " + currentBet);
     moves1();
     moves2();
     moves3();
@@ -239,7 +240,7 @@ function enableButtons(){
 }
 
 function enableOnlyAllIn(){
-    alert("int enableOnlyAllIn");
+    alert("in enableOnlyAllIn");
     document.getElementById('fold').disabled = true;
     document.getElementById('check').disabled = true;
     document.getElementById('bet').disabled = true;
@@ -252,26 +253,61 @@ function enableOnlyAllIn(){
 
 function showTableCards(){
     alert("in show table Cards");
-    if (round = 1){
+    if (round === 1){
         table123();
         table4();
-        table5;
+        table5();
     }
 
-    if (round = 2){
+    if (round === 2){
         table4();
-        table5;
+        table5();
     }
 
-    if (round = 3){
+    if (round === 3){
         table5();
     }
 }
 
-function updateCurrentBalance(){
+function whoWon(){
+    disableButtons();
+    alert("in who won")
+    if (moveNumberPlayer > moveNumber1 && moveNumberPlayer > moveNumber2 && moveNumberPlayer > moveNumber3){
+        alert("You Won!");
+    }
+    if (moveNumber1 > moveNumberPlayer && moveNumber1 > moveNumber2 && moveNumber1 > moveNumber3){
+        alert("Bot 1 Won! | Card Combination: " + move);
+    }
+    if (moveNumber2 > moveNumberPlayer && moveNumber2 > moveNumber1 && moveNumber2 > moveNumber3){
+        alert("Bot 2 Won! | Card Combination: " + move2);
+    }
+    if (moveNumber3 > moveNumberPlayer && moveNumber3 > moveNumber2 && moveNumber3 > moveNumber1){
+        alert("Bot 1 Won! | Card Combination: " + move3);
+    }
+    if (moveNumberPlayer === moveNumber1 && moveNumber1 === moveNumber2 && moveNumber2 === moveNumber3){
+        alert("Everyone Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber1){
+        alert("Player and Bot1 Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber2){
+        alert("Player and Bot2 Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber3){
+        alert("Player and Bot3 Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber1 && moveNumberPlayer === moveNumber2){
+        alert("Player, Bot1 and Bot 2 Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber1 && moveNumberPlayer === moveNumber3){
+        alert("Player, Bot1 and Bot3 Won! | Card Combination:" + move);
+    }
+    if (moveNumberPlayer === moveNumber2 && moveNumberPlayer === moveNumber3){
+        alert("Player, Bot2 and Bot3 Won! | Card Combination:" + move);
+    }
 
 }
 
-function newRound(){
+function updateCurrentBalance(){
 
 }

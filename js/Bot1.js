@@ -3,6 +3,7 @@ var inhaltBot1=[];
 var inhalteBot1=[];
 var flusheBot1=[];
 var move = 'nichts';
+var moveNumber1 = 0;
 let cardscounter1=0;
 let cardscounter2=0;
 var bot1 = 'bot1';
@@ -10,14 +11,12 @@ var foldedBot1 = false;
 
 function cardsBot1(){
     var randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("card1Bot1").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalteBot1.push(checks[randomNum]);
     flusheBot1.push(randomNum);
     checks.splice(randomNum,1);
 
     randomNum = Math.floor(Math.random() * myPix.length);
-    document.getElementById("card2Bot1").src = myPix[randomNum];
     myPix.splice(randomNum,1);
     inhalteBot1.push(checks[randomNum]);
     flusheBot1.push(randomNum);
@@ -47,43 +46,48 @@ function abfrageBot1(){
     if(RoyalFlush2()==true){
         console.log("royalFlush");
         move="RoyalFlush";
+        moveNumber1 = 9;
     }
     if(fourOfaKind2()==true){
         console.log("four of a kind");
         move="fourOfaKind";
+        moveNumber1 = 7;
     }
     else if(straight2()==true){
         console.log("straight");
         move="straight";
+        moveNumber1 = 4;
     }
-
-
 
     abfrage2=threeOfaKind2();
     pairC2=pair2();
     if(abfrage2==true && pairC2==true){
         console.log("Full house");
         move="Fullhouse";
+        moveNumber1 = 6;
     }
     else if(straightFlush2()==true){
         console.log("straight Flush");
         move="straightFlush";
+        moveNumber1 = 8;
     }
     else if(abfrage2==true){
         console.log("threeofakind");
         move="threeofakind";
+        moveNumber1 = 3;
     }
     if(pairC2==true&&abfrage2!=true){
         console.log("pair");
         move="pair";
-
+        moveNumber1 = 1;
     }
     if(DoublePair2() == true&&abfrage2!=true){
         console.log("two pair");
         move="doublepair";
+        moveNumber1 = 2;
 
     }
-    abfrageBot2()
+    abfrageBot2();
 
 }
 
