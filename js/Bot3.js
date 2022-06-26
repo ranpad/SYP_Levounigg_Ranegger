@@ -3,7 +3,10 @@ var inhaltBot3=[];
 var inhalteBot3=[];
 var flusheBot3=[];
 let cardscounter3=0;
-move3="";
+var move = "nichts";
+var bot3 = 'bot3';
+var foldedBot3 = false;
+
 function cardsBot3(){
     inhalte=[];
     flushe=[];
@@ -81,99 +84,141 @@ function abfrageBot3(){
         move3="doublepair";
 
     }
-    
+
 }
-function moves(){
+
+function moves3(){
+
+    if(foldedBot3){
+        return;
+    }
+
     randomNum=Math.floor(Math.random() * 10);
-    if(move3=="RoyalFlush"){
+    if(move=="RoyalFlush"){
         if(randomNum<=9){
-            Allin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="straightFlush"){
+
+    if(move=="straightFlush"){
         if(randomNum<=8){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="fourOfaKind"){
+
+    if(move=="fourOfaKind"){
         if(randomNum<=7){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="Fullhouse"){
+
+    if(move=="Fullhouse"){
         if(randomNum<=6){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="flush"){
+
+    if(move=="flush"){
         if(randomNum<=5){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="straight"){
+
+    if(move=="straight"){
         if(randomNum<=4){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            check;
+            check(bot3);
         }
     }
-    if(move3=="threeofakind"){
+
+    if(move=="threeofakind"){
         if(randomNum<=3){
-            ALLin;
+            allInBot(bot3);
         }
         else{
-            if(randomNum<=7){
-                check;
+            if(randomNum<=9){
+                check(bot3);
             }
             else{
-                fold;
-            }
-        }
-    }
-    if(move3=="twopairs"){
-        if(randomNum<=2){
-            ALLin;
-        }
-        else{
-            if(randomNum<=5){
-                check;
-            }
-            else{
-                fold;
-            }
-        }
-    }
-    if(move3=="pair"){
-        if(randomNum<=2){
-            ALLin;
-        }
-        else{
-            if(randomNum<=3){
-                check;
-            }
-            else{
-                fold;
+                foldedBot3 = true;
+                fold(bot3);
+                return;
             }
         }
     }
 
+    if(move=="twopairs"){
+        if(randomNum<=1){
+            allInBot(bot3);
+        }
+        else{
+            if(randomNum<=8){
+                check(bot3);
+            }
+            else{
+                foldedBot3 = true;
+                fold(bot3);
+                return;
+            }
+        }
+    }
+
+    if(move=="pair"){
+        if(randomNum<=1){
+            allInBot(bot3);
+        }
+        else{
+            if(randomNum<=8){
+                check(bot3);
+            }
+            else{
+                foldedBot3 = true;
+                fold(bot3);
+                return;
+            }
+        }
+    }
+
+    if(move=="nichts"){
+        if (randomNum <= 8){
+            check(bot3);
+        }else{
+            foldedBot3 = true;
+            fold(bot3);
+            return;
+        }
+    }
 }
+
+function foldOrAllIn3(){
+    randomNum=Math.floor(Math.random() * 10);
+    if (randomNum <= 8){
+        foldedBot3 = true;
+        fold(bot3);
+        return;
+    }else{
+        allInBot(bot3);
+    }
+}
+
+
 function RoyalFlush4(){
     flushBot1.sort((a, b) => a - b);
     inhaltBot1.sort((a, b) => a - b);
