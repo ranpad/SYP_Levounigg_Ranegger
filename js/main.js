@@ -82,41 +82,32 @@ function showcard() {
 function abfrage(){
     console.log(inhalt);
     if(RoyalFlush()==true){
-        document.getElementById("royalFlush").style.background="rgb(255, 0, 0)";
         moveNumberPlayer=9;
     }
     if(fourOfaKind()==true){
-        document.getElementById("fourOfaKind").style.background="rgb(255, 0, 0)";
         moveNumberPlayer=7;
     }
     else if(straight()==true){
         moveNumberPlayer=4;
-        document.getElementById("straight").style.background="rgb(255, 0, 0)";
     }
     abfrage1=threeOfaKind();
     pairC=pair();
 
     if(abfrage1===true && pairC===true){
-        document.getElementById("fullHouse").style.background="rgb(255, 0, 0)";
         moveNumberPlayer=6;
     }
     if(straightFlush()===true){
         moveNumberPlayer=8;
-        document.getElementById("straightFlush").style.background="rgb(255, 0, 0)";
     }
     if(abfrage1===true){
         moveNumberPlayer=3;
-        document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
     if(pairC===true&&abfrage1!==true){
-        moveNumberPlayer=1;
-        document.getElementById("pair").style.background="rgb(255, 0, 0)";
+        moveNumberPlayer=1;0)";
 
     }
     if(DoublePair()===true){
         moveNumberPlayer=2;
-        document.getElementById("pair").style.background="transparent";
-        document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
     }
     abfrageBot1();
