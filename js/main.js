@@ -46,7 +46,7 @@ myPix = [
  var flush=[];
  inhalt2=[];
  flush2=[];
-
+moveNumberPlayer=0;
 function showcard() {
     inhalt=[];
     flush=[];
@@ -80,33 +80,41 @@ function showcard() {
 
 
 function abfrage(){
-
     console.log(inhalt);
     if(RoyalFlush()==true){
         document.getElementById("royalFlush").style.background="rgb(255, 0, 0)";
+        moveNumberPlayer=9;
     }
     if(fourOfaKind()==true){
         document.getElementById("fourOfaKind").style.background="rgb(255, 0, 0)";
+        moveNumberPlayer=7;
     }
     else if(straight()==true){
+        moveNumberPlayer=4;
         document.getElementById("straight").style.background="rgb(255, 0, 0)";
     }
     abfrage1=threeOfaKind();
     pairC=pair();
+
     if(abfrage1===true && pairC===true){
         document.getElementById("fullHouse").style.background="rgb(255, 0, 0)";
+        moveNumberPlayer=6;
     }
     if(straightFlush()===true){
+        moveNumberPlayer=8;
         document.getElementById("straightFlush").style.background="rgb(255, 0, 0)";
     }
     if(abfrage1===true){
+        moveNumberPlayer=3;
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
     if(pairC===true&&abfrage1!==true){
+        moveNumberPlayer=1;
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
 
     }
-    if(DoublePair()==true&&abfrage1!=true){
+    if(DoublePair()===true){
+        moveNumberPlayer=2;
         document.getElementById("pair").style.background="transparent";
         document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 
@@ -170,19 +178,19 @@ function table5(){
 }
 
 function RoyalFlush(){
-    flushBot1.sort((a, b) => a - b);
-    inhaltBot1.sort((a, b) => a - b);
+    flush.sort((a, b) => a - b);
+    inhalt.sort((a, b) => a - b);
     let i=0;
     let c=0;
     let check=0;
     let check2=0;
     let check3=1;
-    while(i<=inhaltBot1.length){
+    while(i<=inhalt.length){
         c=i;
-        if(inhaltBot1[i]==9){
-            check=flushBot1[i];
-            while(c<=flushBot1.length){
-                check2=flushBot1[c+i];
+        if(inhalt[i]==9){
+            check= flush[i];
+            while(c<=flush.length){
+                check2= flush[c+i];
                 if(check==check2+4){
                     check3++;
                     if(check3==5){
@@ -332,10 +340,12 @@ function threeOfaKind(){
     return false;
 }
 function DoublePair(){
+    console.log(inhalt);
     var valuesSoFar = Object.create(null);
     for (let i = 0; i < inhalt.length; ++i) {
         var value = inhalt[i];
         if (value in valuesSoFar) {
+            console.log("double")
             return true;
         }
         valuesSoFar[value] = true;
