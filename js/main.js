@@ -103,7 +103,7 @@ function abfrage(){
         moveNumberPlayer=3;
     }
     if(pairC===true&&abfrage1!==true){
-        moveNumberPlayer=1;0)";
+        moveNumberPlayer=1;
 
     }
     if(DoublePair()===true){
