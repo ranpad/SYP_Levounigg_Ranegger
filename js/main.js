@@ -44,6 +44,7 @@ myPix = [
 
  var inhalt=[];
  var flush=[];
+ name;
  inhalt2=[];
  flush2=[];
 moveNumberPlayer=0;
@@ -83,31 +84,39 @@ function abfrage(){
     console.log(inhalt);
     if(RoyalFlush()==true){
         moveNumberPlayer=9;
+        name="RoyalFlush";
     }
     if(fourOfaKind()==true){
         moveNumberPlayer=7;
+        name="fourofakind";
     }
     else if(straight()==true){
         moveNumberPlayer=4;
+        name="straight";
     }
     abfrage1=threeOfaKind();
     pairC=pair();
 
     if(abfrage1===true && pairC===true){
         moveNumberPlayer=6;
+        name="FullHouse";
     }
     if(straightFlush()===true){
         moveNumberPlayer=8;
+        name="straightFlush";
     }
     if(abfrage1===true){
         moveNumberPlayer=3;
+        name="ThreeOfaKind";
     }
     if(pairC===true&&abfrage1!==true){
         moveNumberPlayer=1;
+        name="Pair";
 
     }
     if(DoublePair()===true){
         moveNumberPlayer=2;
+        name="DoublePair";
 
     }
     abfrageBot1();
