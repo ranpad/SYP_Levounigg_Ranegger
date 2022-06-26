@@ -113,7 +113,6 @@ function fold(botId){
     if (botId === 'bot3'){
         document.getElementById('statusBot3').textContent = balanceBot3 + "$ - Folded";
     }
-    enableButtons();
 }
 
 function allInPlayer(){
