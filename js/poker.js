@@ -24,6 +24,7 @@ function main(){
         round=0;
         table5();
     }
+
 }
 
 function allIn(){

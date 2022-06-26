@@ -92,23 +92,22 @@ function abfrage(){
     else if(straight()==true){
         document.getElementById("straight").style.background="rgb(255, 0, 0)";
     }
-
-    let abfrage=threeOfaKind();
-    let pairC=pair();
-    if(abfrage==true && pairC==true){
+    abfrage1=threeOfaKind();
+    pairC=pair();
+    if(abfrage1===true && pairC===true){
         document.getElementById("fullHouse").style.background="rgb(255, 0, 0)";
     }
-    if(straightFlush()==true){
+    if(straightFlush()===true){
         document.getElementById("straightFlush").style.background="rgb(255, 0, 0)";
     }
-    if(abfrage==true){
+    if(abfrage1===true){
         document.getElementById("theeOfaKind").style.background="rgb(255, 0, 0)";
     }
-    if(pairC==true&&abfrage!=true){
+    if(pairC===true&&abfrage1!==true){
         document.getElementById("pair").style.background="rgb(255, 0, 0)";
 
     }
-    if(DoublePair()==true&&abfrage!=true){
+    if(DoublePair()==true&&abfrage1!=true){
         document.getElementById("pair").style.background="transparent";
         document.getElementById("twoPair").style.background="rgb(255, 0, 0)";
 

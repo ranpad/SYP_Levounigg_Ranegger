@@ -2,7 +2,7 @@ var flushBot1=[];
 var inhaltBot1=[];
 var inhalteBot1=[];
 var flusheBot1=[];
-var move;
+move="";
 let cardscounter1=0;
 let cardscounter2=0;
 function cardsBot1(){
@@ -56,9 +56,9 @@ function abfrageBot1(){
 
 
 
-    let abfrage=threeOfaKind2();
-    let pairC=pair2();
-    if(abfrage==true && pairC==true){
+    abfrage2=threeOfaKind2();
+    pairC2=pair2();
+    if(abfrage2==true && pairC2==true){
         console.log("Full house");
         move="Fullhouse";
     }
@@ -66,16 +66,16 @@ function abfrageBot1(){
         console.log("straight Flush");
         move="straightFlush";
     }
-    else if(abfrage==true){
+    else if(abfrage2==true){
         console.log("threeofakind");
         move="threeofakind";
     }
-    if(pairC==true&&abfrage!=true){
+    if(pairC2==true&&abfrage2!=true){
         console.log("pair");
         move="pair";
 
     }
-    if(DoublePair2() == true&&abfrage!=true){
+    if(DoublePair2() == true&&abfrage2!=true){
         console.log("two pair");
         move="doublepair";
 

@@ -3,7 +3,7 @@ var inhaltBot3=[];
 var inhalteBot3=[];
 var flusheBot3=[];
 let cardscounter3=0;
-var move;
+move3="";
 function cardsBot3(){
     inhalte=[];
     flushe=[];
@@ -41,36 +41,138 @@ function abfrageBot3(){
     flushBot3.push.apply(flushBot3, flush2);
     inhaltBot3.push.apply(inhaltBot3, inhalt2);
     console.log(inhaltBot3);
+
     if(RoyalFlush4()==true){
         console.log("royalFlush");
+        move3="RoyalFlush";
     }
     if(fourOfaKind4()==true){
         console.log("four of a kind");
+        move3="fourOfaKind";
     }
     else if(straight4()==true){
         console.log("straight");
+        move3="straight";
     }
 
 
-    let abfrage=threeOfaKind4();
-    let pairC=pair4();
-    if(abfrage==true && pairC==true){
+
+    abfrage4=threeOfaKind4();
+    pairC4=pair4();
+    if(abfrage4==true && pairC4==true){
         console.log("Full house");
+        move3="Fullhouse";
     }
     else if(straightFlush4()==true){
         console.log("straight Flush");
+        move3="straightFlush";
     }
-    else if(abfrage==true){
+    else if(abfrage4==true){
         console.log("threeofakind");
+        move3="threeofakind";
     }
-    if(pairC==true&&abfrage!=true){
+    if(pairC4==true&&abfrage4!=true){
         console.log("pair");
+        move3="pair";
 
     }
-    if(DoublePair4() == true&&abfrage!=true){
+    if(DoublePair4() == true&&abfrage4!=true){
         console.log("two pair");
+        move3="doublepair";
 
     }
+    
+}
+function moves(){
+    randomNum=Math.floor(Math.random() * 10);
+    if(move3=="RoyalFlush"){
+        if(randomNum<=9){
+            Allin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="straightFlush"){
+        if(randomNum<=8){
+            ALLin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="fourOfaKind"){
+        if(randomNum<=7){
+            ALLin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="Fullhouse"){
+        if(randomNum<=6){
+            ALLin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="flush"){
+        if(randomNum<=5){
+            ALLin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="straight"){
+        if(randomNum<=4){
+            ALLin;
+        }
+        else{
+            check;
+        }
+    }
+    if(move3=="threeofakind"){
+        if(randomNum<=3){
+            ALLin;
+        }
+        else{
+            if(randomNum<=7){
+                check;
+            }
+            else{
+                fold;
+            }
+        }
+    }
+    if(move3=="twopairs"){
+        if(randomNum<=2){
+            ALLin;
+        }
+        else{
+            if(randomNum<=5){
+                check;
+            }
+            else{
+                fold;
+            }
+        }
+    }
+    if(move3=="pair"){
+        if(randomNum<=2){
+            ALLin;
+        }
+        else{
+            if(randomNum<=3){
+                check;
+            }
+            else{
+                fold;
+            }
+        }
+    }
+
 }
 function RoyalFlush4(){
     flushBot1.sort((a, b) => a - b);
